@@ -1,0 +1,8 @@
+C:\Users\Pro\Desktop\hoc tap\C#\Chuong3\Chuong3\bin\Debug\Chuong3.exe.config
+C:\Users\Pro\Desktop\hoc tap\C#\Chuong3\Chuong3\bin\Debug\Chuong3.exe
+C:\Users\Pro\Desktop\hoc tap\C#\Chuong3\Chuong3\bin\Debug\Chuong3.pdb
+C:\Users\Pro\Desktop\hoc tap\C#\Chuong3\Chuong3\obj\Debug\Chuong3.csproj.AssemblyReference.cache
+C:\Users\Pro\Desktop\hoc tap\C#\Chuong3\Chuong3\obj\Debug\Chuong3.csproj.SuggestedBindingRedirects.cache
+C:\Users\Pro\Desktop\hoc tap\C#\Chuong3\Chuong3\obj\Debug\Chuong3.csproj.CoreCompileInputs.cache
+C:\Users\Pro\Desktop\hoc tap\C#\Chuong3\Chuong3\obj\Debug\Chuong3.exe
+C:\Users\Pro\Desktop\hoc tap\C#\Chuong3\Chuong3\obj\Debug\Chuong3.pdb
