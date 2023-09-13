@@ -17,7 +17,7 @@ namespace Chuong4
         }
         public static string IsNoob(string msg)
         {
-            string a = $"{msg} test";
+            string a = msg.Replace(msg,"test");
             return a;
         }
     }
