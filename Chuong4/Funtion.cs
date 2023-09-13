@@ -10,6 +10,15 @@ namespace Chuong4
     {
         static void Main(string[] args)
         {
+            string msg = "Hello world";
+            string test = IsNoob(msg);
+            Console.WriteLine(test);
+
+        }
+        public static string IsNoob(string msg)
+        {
+            string a = $"{msg} test";
+            return a;
         }
     }
 }

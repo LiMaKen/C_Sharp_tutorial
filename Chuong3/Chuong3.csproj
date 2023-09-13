@@ -45,6 +45,8 @@
   <ItemGroup>
     <None Include="Class1.cs" />
     <None Include="Ifelse.cs" />
+    <Compile Include="DoubleLoop.cs" />
+    <Compile Include="While.cs" />
     <Compile Include="For.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
