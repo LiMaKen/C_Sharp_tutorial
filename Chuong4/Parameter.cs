@@ -161,80 +161,210 @@ namespace ConsoleApp1
          }*/
         #endregion
         #region bai 5
-       /* static void Main(string[] args)
-        {
-            GetData(out int a, out int b, out int c);
-            Max(a, b, c, out int max);
-            Min(a, b, c, out int min);
-            Sum(a, b, c,out double sum);
-            Find(a, b, c, out int find, max, min);
-            MSG(a, b, c, max, min, sum, find);
-            
+        /* static void Main(string[] args)
+         {
+             GetData(out int a, out int b, out int c);
+             Max(a, b, c, out int max);
+             Min(a, b, c, out int min);
+             Sum(a, b, c,out double sum);
+             Find(a, b, c, out int find, max, min);
+             MSG(a, b, c, max, min, sum, find);
 
-        }
-        static void GetData(out int a, out int b, out int c)
-        {
-            Console.WriteLine("Moi ban nhap so a");
-            a = int.Parse(Console.ReadLine());
-            Console.WriteLine("Moi ban nhap so b");
-            b = int.Parse(Console.ReadLine());
-            Console.WriteLine("Moi ban nhap so c");
-            c = int.Parse(Console.ReadLine());
-        }
-        static void Max(int a, int b, int c, out int max)
-        {
-            max = a;
-            if (max < b)
-            {
-                max = b;
-            }
-            if (max < c)
-            {
-                max = c;
-            }
-        }
-        static void Min(int a, int b, int c, out int min)
-        {
-            min = a;
-            if (min > b)
-            {
-                min = b;
-            }
-            if (min > c)
-            {
-                min = c;
-            }
-        }
-        static void Sum(int a, int b, int c , out double sum)
-        {
-            sum = (double) (a + b + c)/3;
-        }
-        static void Find(int a, int b , int c , out int find , int max , int min)
-        {
-            find = 0;
-            if ( max == a && min == c)
-            {
-                find = b;
-            }
-            if (max == b && min == a)
-            {
-                find = c;
-            }
-            if (max == c && min == b)
-            {
-                find = a;
-            }
-        }
-        static void MSG(in int a, in int b, in int c,in int max,in int min ,in double sum , in int find)
-        {
-            Console.WriteLine($"  a = {a}   b = {b}  c = {c} \n gia tri lon nhat la {max}");
-            Console.WriteLine($"Gia tri nho nhat la {min}");
-            Console.WriteLine($"Trung binh cong cua 3 so la {sum}");
-            Console.WriteLine($"So nho thu 2 la {find}");
-        }*/
+
+         }
+         static void GetData(out int a, out int b, out int c)
+         {
+             Console.WriteLine("Moi ban nhap so a");
+             a = int.Parse(Console.ReadLine());
+             Console.WriteLine("Moi ban nhap so b");
+             b = int.Parse(Console.ReadLine());
+             Console.WriteLine("Moi ban nhap so c");
+             c = int.Parse(Console.ReadLine());
+         }
+         static void Max(int a, int b, int c, out int max)
+         {
+             max = a;
+             if (max < b)
+             {
+                 max = b;
+             }
+             if (max < c)
+             {
+                 max = c;
+             }
+         }
+         static void Min(int a, int b, int c, out int min)
+         {
+             min = a;
+             if (min > b)
+             {
+                 min = b;
+             }
+             if (min > c)
+             {
+                 min = c;
+             }
+         }
+         static void Sum(int a, int b, int c , out double sum)
+         {
+             sum = (double) (a + b + c)/3;
+         }
+         static void Find(int a, int b , int c , out int find , int max , int min)
+         {
+             find = 0;
+             if ( max == a && min == c)
+             {
+                 find = b;
+             }
+             if (max == b && min == a)
+             {
+                 find = c;
+             }
+             if (max == c && min == b)
+             {
+                 find = a;
+             }
+         }
+         static void MSG(in int a, in int b, in int c,in int max,in int min ,in double sum , in int find)
+         {
+             Console.WriteLine($"  a = {a}   b = {b}  c = {c} \n gia tri lon nhat la {max}");
+             Console.WriteLine($"Gia tri nho nhat la {min}");
+             Console.WriteLine($"Trung binh cong cua 3 so la {sum}");
+             Console.WriteLine($"So nho thu 2 la {find}");
+         }*/
         #endregion
         #region bai 6
+        /*
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                GetData(out int n, out int k);
+                if (Checked(k))
+                {
+                    Max(out int x,k,n);
+                    Min(out int y, k, n);
+                    MSG(n, k , x,y);
+                }
+                continue;
+            }
+        }
+        static void Max(out int x,int k , int n)
+        {
+            int a = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if(i % k == 0)
+                {
+                    a = i;
+                }
+            }
+            x = a;
+        }
+        static void Min(out int y, int k, int n)
+        {
+            int a = 0;
+            for (int i = 1; i < n; i++)
+            {
+                if (i % k == 0)
+                {
+                    a = i;
+                    break;
+                }
+            }
+            y = a;
+        }
+        static bool Checked(int k)
+        {
+            if (k == 0)
+            {
+                Console.WriteLine("So nguyen k sai");
+                return false;
+            }
+            return true;
+        }
+        static void GetData(out int n, out int k)
+        {
+            Console.WriteLine("Moi ban nhap so nguyen duong n");
+            n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Moi ban nhap so nguyen k");
+            k = int.Parse(Console.ReadLine());
+        }
 
+        static void MSG(in int n, in int k,in int x,in int y)
+        {
+            Console.WriteLine($"So nguyen n la:{n}");
+            Console.WriteLine($"So nguyen k la:{k}");
+            Console.WriteLine($"So nguyen lon nhat chia het cho k la:{x}");
+            Console.WriteLine($"So nguyen nho nhat chia het cho k la:{y}");
+        }*/
+        #endregion
+        #region bai 7
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                GetData(out int a, out int b);
+               
+                    Max(out int x,b,a);
+                    Min(out int y, b, a);
+                    MSG(a, b , x,y);
+                
+                continue;
+            }
+        }
+        static void Max(out int x,int b , int a)
+        {
+            if (a == 0 && b == 0)
+            {
+                x = 0;
+                return;
+            }
+            else if (a == 0 && b != 0 || a != 0 && b == 0)
+            {
+                x = a == 0 ? b : a;
+                return;
+            }
+            while (a != b)
+            {
+                if (a > b)
+                {
+                    a -= b;
+                }
+                else
+                {
+                    b -= a;
+                }
+            }
+            x = a;
+        }
+        static void Min(out int y, int b, int a)
+        {
+            if (a * b == 0)
+            {
+                y = 0;
+            }
+            else
+            {
+                Max(out int x, b, a);
+                y = a * b / x;
+            }
+        }
+        static void GetData(out int a, out int b)
+        {
+            Console.WriteLine("Moi ban nhap so nguyen duong a");
+            a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Moi ban nhap so nguyen duong b");
+            b = int.Parse(Console.ReadLine());
+        }
+
+        static void MSG(in int a, in int b,in int x,in int y)
+        {
+            Console.WriteLine($"So nguyen n la:{a}");
+            Console.WriteLine($"So nguyen k la:{b}");
+            Console.WriteLine($"Uoc chung lon nhat la:{x}");
+            Console.WriteLine($"Boi chung nho nhat la:{y}");
+        }
         #endregion
     }
 }
