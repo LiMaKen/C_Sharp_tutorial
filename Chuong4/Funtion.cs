@@ -586,53 +586,6 @@ namespace Chuong4
 
         #endregion
         #region bai 19
-        /* public static void Main()
-         {
-             while (true)
-             {
-                 int Side;
-                 Console.WriteLine("Moi ban nhap cac chu so:");
-                 string SideTry = Console.ReadLine();
-                 if (int.TryParse(SideTry, out Side) == false)
-                 {
-                     Console.WriteLine("Ban da nhap sai dinh dang");
-                     continue;
-                 }
-
-                 if (Side < 0 )
-                 {
-                     Console.WriteLine("ERROR");
-                 }
-                 else
-                 {
-                     HCN(Side);
-                 }
-                 continue;
-             }
-
-         }
-         public static void HCN(int S)
-         {
-             for (int i = 1; i <= S; i++)
-             {
-                 for (int j = 1; j <= S; j++)
-                 {
-                     if (i == 1 || j == 1 || i == S || j == S || i == j || i + j == S + 1)
-                     {
-                         Console.Write(" * ");
-                     }
-                     else
-                     {
-                         Console.Write("   ");
-                     }
-
-                 }
-                 Console.WriteLine();
-             }
-         }*/
-
-        #endregion
-        #region bai 20
         /*public static void Main()
         {
             while (true)
@@ -641,6 +594,52 @@ namespace Chuong4
                 Console.WriteLine("Moi ban nhap cac chu so:");
                 string SideTry = Console.ReadLine();
                 if (int.TryParse(SideTry, out Side) == false)
+                {
+                    Console.WriteLine("Ban da nhap sai dinh dang");
+                    continue;
+                }
+
+                if (Side < 0 )
+                {
+                    Console.WriteLine("ERROR");
+                }
+                else
+                {
+                    HCN(Side);
+                }
+                continue;
+            }
+
+        }
+        public static void HCN(int S)
+        {
+            for (int i = 1; i <= S; i++)
+            {
+                for (int j = 1; j <= S; j++)
+                {
+                    if (i == 1 || j == 1 || i == S || j == S || i == j || i + j == S + 1)
+                    {
+                        Console.Write(" * ");
+                    }
+                    else
+                    {
+                        Console.Write("   ");
+                    }
+
+                }
+                Console.WriteLine();
+            }
+        }*/
+
+        #endregion
+        #region bai 20
+        /*public static void Main()
+        {
+            while (true)
+            {
+                Console.WriteLine("Moi ban nhap cac chu so:");
+                string SideTry = Console.ReadLine();
+                if (int.TryParse(SideTry, out int Side) == false)
                 {
                     Console.WriteLine("Ban da nhap sai dinh dang");
                     continue;
@@ -671,5 +670,6 @@ namespace Chuong4
         }
         */
         #endregion
+        
     }
 }
