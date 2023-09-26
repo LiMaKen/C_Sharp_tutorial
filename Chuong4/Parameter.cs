@@ -300,7 +300,7 @@ namespace ConsoleApp1
         }*/
         #endregion
         #region bai 7
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             while (true)
             {
@@ -364,7 +364,7 @@ namespace ConsoleApp1
             Console.WriteLine($"So nguyen k la:{b}");
             Console.WriteLine($"Uoc chung lon nhat la:{x}");
             Console.WriteLine($"Boi chung nho nhat la:{y}");
-        }
+        }*/
         #endregion
     }
 }
