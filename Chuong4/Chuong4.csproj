@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LocalFuntion.cs" />
     <Compile Include="MethodOverLoading.cs" />
     <None Include="Parameter.cs" />
     <None Include="Funtion.cs" />
