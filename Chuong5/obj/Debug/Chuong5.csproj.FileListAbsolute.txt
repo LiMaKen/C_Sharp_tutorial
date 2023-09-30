@@ -1,0 +1,8 @@
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong5\bin\Debug\Chuong5.exe.config
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong5\bin\Debug\Chuong5.exe
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong5\bin\Debug\Chuong5.pdb
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong5\obj\Debug\Chuong5.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong5\obj\Debug\Chuong5.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong5\obj\Debug\Chuong5.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong5\obj\Debug\Chuong5.exe
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong5\obj\Debug\Chuong5.pdb
