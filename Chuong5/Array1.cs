@@ -622,7 +622,7 @@ namespace Chuong5
 
         private static void MSG(bool check)
         {
-            if(check)
+            if(check) // check bool từ CheckArray()
             {
                 Console.WriteLine("YES");
             }
@@ -640,11 +640,11 @@ namespace Chuong5
         }
         static bool CheckArray(int[] newAraay)
         {
-            int mid = newAraay.Length / 2;
+            int mid = newAraay.Length / 2; // chia mảng ra làm 2 đoạn
             
-            for (int i = 0; i <= mid; i++)
+            for (int i = 0; i <= mid; i++) // dùng for chạy từ đầu đến giữa mảng và ngược lại để check
             {
-                if (newAraay[i] != newAraay[newAraay.Length - i - 1])
+                if (newAraay[i] != newAraay[newAraay.Length - i - 1])  // so sánh 2 đoạn với nhau (VD: i = 0 | Index = length - 1 - i=0) // trong đó length là kích thước của mảng và trừ 1 để lấy chỉ số cuối cùng của mảng
                 {
                     return false;
                 }
@@ -1226,7 +1226,7 @@ namespace Chuong5
         }*/
         #endregion
         #region Bai 20
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             while (true)
             {
@@ -1312,7 +1312,7 @@ namespace Chuong5
                 }
             }
             return newArray;
-        }
+        }*/
         #endregion
     }
 }
