@@ -723,20 +723,14 @@ namespace Chuong5
         {
             while (true)
             {
-                Console.WriteLine("Moi ban nhap n phan tu trong mang:");
-                string checkN = Console.ReadLine();
-                if (int.TryParse(checkN, out int n) == false)
-                {
-                    Console.WriteLine("sai dinh dang");
-                    continue;
-                }
-                if (n > 0)
-                {
-                    int[] array = new int[n];
-                    var newArray = GetArray(array);
+                Console.WriteLine("Moi ban nhap phan tu trong mang:");
+            
+                    var element = Console.ReadLine().Split(' ');
+                    int[] array = new int[element.Length];
+                    var newArray = GetArray(array,element);
                     DecArray(newArray);
 
-                }
+                
                 continue;
             }
         }
@@ -750,12 +744,11 @@ namespace Chuong5
             else Console.WriteLine("NO");
         }
 
-        static int[] GetArray(int[] array)
+        static int[] GetArray(int[] array,string[] element)
         {
             for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine($"Moi ban nhap phan tu thu {i} :");
-                array[i] = int.Parse(Console.ReadLine());
+                array[i] = int.Parse(element[i]);
             }
             return array;
         }
@@ -970,7 +963,7 @@ namespace Chuong5
         }*/
         #endregion
         #region Bai 17
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             while (true)
             {
@@ -1026,8 +1019,300 @@ namespace Chuong5
             }
 
         }
+        */
 
+        #endregion
+        #region Bai 18
+        /*static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.WriteLine("Moi ban nhap n phan tu trong mang1:");
+                string checkN = Console.ReadLine();
+                Console.WriteLine("Moi ban nhap m phan tu trong mang2:");
+                string checkM = Console.ReadLine();
+                if (int.TryParse(checkN, out int n) == false || int.TryParse(checkM, out int m) == false)
+                {
+                    Console.WriteLine("sai dinh dang");
+                    continue;
+                }
+                if (n > 0)
+                {
+                    int[] array1 = new int[n];
+                    int[] array2 = new int[m];
+                    for (int i = 0; i < array1.Length; i++)
+                    {
+                        Console.Write($"Moi ban nhap phan tu thu {i} cua mang Array1 : ");
+                        array1[i] = int.Parse(Console.ReadLine());
+                    }
+                    for (int i = 0; i < array2.Length; i++)
+                    {
+                        Console.Write($"Moi ban nhap phan tu thu {i} cua mang Array2 : ");
+                        array2[i] = int.Parse(Console.ReadLine());
+                    }
+                    SortArray2(array1, array2);
+                }
+                continue;
+            }
+        }
+        //cach 1
+        static void SortArray(int[] array1, int[] array2)
+        {
+            for (int i = 0; i < array1.Length; i++)
+            {
+                for (int j = i+1; j < array1.Length; j++)
+                {
+                    if (array1[i] > array1[j])
+                    {
+                        int tmp = array1[i];
+                        array1[i] = array1[j];
+                        array1[j] = tmp;
+                    }
+                }
+            }
+            for (int i = 0; i < array2.Length; i++)
+            {
+                for (int j = i+1; j < array2.Length; j++)
+                {
+                    if (array2[i] > array2[j])
+                    {
+                        int tmp = array2[i];
+                        array2[i] = array2[j];
+                        array2[j] = tmp;
+                    }
+                }
+            }
+            Console.Write("Phan tu mang 1: ");
+            for (int i = 0; i < array1.Length; i++)
+            {
+                Console.Write(" " + array1[i]);
+            }
+            Console.Write("\nPhan tu mang 2: ");
+            for (int i = 0; i < array2.Length; i++)
+            {
+                Console.Write(" " +array2[i]);
+            }
+            Console.Write("\nPhan tu mang 1+2: ");
+            int sumLength = array1.Length + array2.Length;
+            int index = 0;
+            int[] result = new int[sumLength];
+            foreach (int i in array1)
+            {
+                result[index] = i;
+                index++;
+            }
+            foreach (int i in array2)
+            {
+                result[index] = i;
+                index++;
+            }
+            for (int i = 0; i < result.Length; i++)
+            {
+                for (int k = i+1; k < result.Length; k++)
+                {
+                    if (result[i] > result[k])
+                    {
+                        int tmp = result[i];
+                        result[i] = result[k];
+                        result[k] = tmp;
+                    }
+                }
+            }
+            for (int i = 0; i < result.Length; i++)
+            {
+                Console.Write(" " + result[i]);
+            }
+            Console.WriteLine();
 
+        }
+        //cach 2
+        static void SortArray2(int[] array1, int[] array2)
+        {
+           
+            int sumLength = array1.Length + array2.Length;
+            int index = 0;
+            int[] result = new int[sumLength];
+            foreach (int i in array1)
+            {
+                result[index] = i;
+                index++;
+            }
+            foreach (int i in array2)
+            {
+                result[index] = i;
+                index++;
+            }
+            Array.Sort(result);
+            for (int i = 0; i < result.Length; i++)
+            {
+                Console.WriteLine(result[i]);
+            }
+        }*/
+        #endregion
+        #region Bai 19
+        /*static void Main(string[] args)
+        {
+            while (true)
+            {
+                string[] arr = new string[] { "test", "alo" };
+                string a = arr[0];
+                string b = arr[1];
+                string c = b.Substring(0, 1);
+                string d = a.Substring(0,1);
+                Console.WriteLine("Moi ban nhap n phan tu trong mang1:");
+                string checkN = Console.ReadLine();
+                Console.WriteLine("Moi ban nhap m phan tu trong mang2:");
+                string checkM = Console.ReadLine();
+                if (int.TryParse(checkN, out int n) == false || int.TryParse(checkM, out int m) == false)
+                {
+                    Console.WriteLine("sai dinh dang");
+                    continue;
+                }
+                if (n > 0)
+                {
+                    string[] array1 = new string[n];
+                    string[] array2 = new string[m];
+                    for (int i = 0; i < array1.Length; i++)
+                    {
+                        Console.Write($"Moi ban nhap phan tu thu {i} cua mang Array1 : ");
+                        array1[i] = Console.ReadLine();
+                    }
+                    for (int i = 0; i < array2.Length; i++)
+                    {
+                        Console.Write($"Moi ban nhap phan tu thu {i} cua mang Array2 : ");
+                        array2[i] = Console.ReadLine();
+                    }  
+                    SortArray(array1, array2);
+                }
+                continue;
+            }
+        }
+        static void SortArray(string[] array1, string[] array2)
+        {
+            int sumLength = array1.Length + array2.Length;
+            int index = 0;
+            string[] result = new string[sumLength];
+            Array.Sort(array1, StringComparer.Ordinal);
+            Array.Reverse(array1);      
+            Console.WriteLine("Mang 1");
+            for (int i = 0; i < array1.Length; i++)
+            {
+                Console.WriteLine(array1[i]);
+            }
+            Console.WriteLine("Mang 2");
+            Array.Sort(array2, StringComparer.Ordinal);
+            Array.Reverse(array2);
+            for (int i = 0; i < array2.Length; i++)
+            {
+                Console.WriteLine(array2[i]);
+            }
+            foreach (var item in array1)
+            {
+                result[index] = item;
+                index++;
+            }
+            foreach (var item in array2)
+            {
+                result[index] = item;
+                index++;
+            }
+            Array.Sort(result, StringComparer.Ordinal);
+            Array.Reverse(result);
+            Console.WriteLine("Tong 2 mang:");
+            for (int i = 0; i < result.Length; i++)
+            {
+                Console.WriteLine(result[i]);
+            }
+        }*/
+        #endregion
+        #region Bai 20
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.WriteLine("Moi ban nhap n phan tu trong mang:");
+                string checkN = Console.ReadLine();
+                if (int.TryParse(checkN, out int n) == false)
+                {
+                    Console.WriteLine("sai dinh dang");
+                    continue;
+                }
+                if (n > 0)
+                {
+                    string[] array = new string[n];
+                    string[] newArray = GetData(array, n);
+                    Console.Write("Moi ban nhap chuoi string can dien vao mang:");
+                    string newString = Console.ReadLine();
+                    Console.Write("Moi ban nhap vi tri can dien chuoi:");
+                    string checkK = Console.ReadLine();
+                    if (int.TryParse(checkK, out int k) == false)
+                    {
+                        Console.WriteLine("Sai dinh dang k");
+                        continue;
+                    }
+                    var newArr = GiveItemInArray(newArray, k, newString);
+                    Print(newArr);
+                   
+                }
+                continue;
+            }
+        }
+
+        private static void Print(string[] arr)
+        {
+            foreach (string item in arr)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        static string[] GetData(string[] array, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Moi ban nhap phan tu thu {i} cua mang Array : ");
+                array[i] = Console.ReadLine();
+            }
+           
+            return array;
+
+        }
+        static string[] GiveItemInArray(string[] array, int k, string newString)
+        {
+            string[] newArray = new string[array.Length + 1];
+            int index = 0;
+            foreach (var item in array)
+            {
+                newArray[index] = item;
+                index++;
+            }
+            if (k > newArray.Length)
+            {
+                newArray[newArray.Length - 1] = newString;
+            }
+            else if (k < 0)
+            {
+                for (int i = newArray.Length - 1 ; i > 0; i--)
+                {
+                    newArray[i] = newArray[i - 1];
+                }
+                newArray[0] = newString;
+            }
+            else
+            {
+                for (int i = newArray.Length - 1; i >= k; i--)
+                {
+
+                    newArray[i] = newArray[i - 1];
+                    if (i == k)
+                    {
+                        newArray[i] = newString;
+                    }
+
+                }
+            }
+            return newArray;
+        }
         #endregion
     }
 }
