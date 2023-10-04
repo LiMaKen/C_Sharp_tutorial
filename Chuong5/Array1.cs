@@ -1314,5 +1314,106 @@ namespace Chuong5
             return newArray;
         }*/
         #endregion
+        #region Bai 21
+        static void Main()
+        {
+            while (true)
+            {
+                Getdata(out int[] arr1, out int[] arr2);
+                Print(arr1, arr2);
+                GiveItemA2ToA1(arr1, arr2);
+                continue;
+            }
+        }
+
+        private static void GiveItemA2ToA1(int[] arr1, int[] arr2)
+        {
+            Console.Write("Moi Ban nhap vi tri: ");
+            int k = int.Parse(Console.ReadLine());
+            int sumLengt = arr1.Length + arr2.Length;
+            int index = 0;
+            int[] sumArray = new int[sumLengt];
+            if (k < 0)
+            {
+                foreach (var item in arr2)
+                {
+                    sumArray[index] = item;
+                    index++;
+                }
+                foreach (var item in arr1)
+                {
+                    sumArray[index] = item;
+                    index++;
+                }
+            }
+            else if (k > arr1.Length)
+            {
+                foreach (var item in arr1)
+                {
+                    sumArray[index] = item;
+                    index++;
+                }
+                foreach (var item in arr2)
+                {
+                    sumArray[index] = item;
+                    index++;
+                }
+            }
+            else
+            {
+                foreach (var item in arr1)
+                {
+                    sumArray[index] = item;
+                    index++;
+                }
+                for (int i = k; i < sumArray.Length; i++)
+                {
+
+                }
+                foreach (var item in arr2)
+                {
+                    sumArray[k] = item;
+                    k++;
+                }
+            }
+            foreach (var item in sumArray)
+            {
+                Console.Write(item);
+            }
+        }
+
+        private static void Print(int[] arr1, int[] arr2)
+        {
+            foreach (var item in arr1)
+            {
+                Console.Write(item + " ");
+            }
+            foreach (var item in arr2)
+            {
+                Console.Write(item + " ");
+            }
+        }
+
+        static void Getdata(out int[] arr1, out int[] arr2)
+        {
+            Console.WriteLine("Nhap mang arr1");
+            var element1 = Console.ReadLine().Split(' ');
+            int[] array1 = new int[element1.Length];
+            for (int i = 0; i < element1.Length; i++)
+            {
+                array1[i] = int.Parse(element1[i]);
+            }
+            Console.WriteLine("Nhap mang arr2 de chen vao arr1");
+            var element2 = Console.ReadLine().Split(' ');
+            int[] array2 = new int[element2.Length];
+            for (int i = 0; i < element2.Length; i++)
+            {
+                array2[i] = int.Parse(element2[i]);
+            }
+            arr1 = array1;
+            arr2 = array2;
+
+        }
+        #endregion
     }
 }
