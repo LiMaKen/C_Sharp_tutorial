@@ -8,6 +8,41 @@ namespace Chuong5
 {
     internal class Array2
     {
+        #region Nhập xuất mảng ziczac
+        /*
+        static void Main(string[] args)
+        {
+            Console.Write("Moi ban nhap so hang mang ziczac: ");
+            int row = int.Parse(Console.ReadLine());
+            int[][] zicZac = new int[row][];
+            for (int i = 0; i < zicZac.Length; i++)
+            {
+                Console.Write($"Moi ban nhap so luong phan tu cua hang {i} : ");
+                zicZac[i] = new int[int.Parse(Console.ReadLine())];
+            }
+            for (int i = 0; i < zicZac.Length; i++)
+            {
+                for (int j = 0; j < zicZac[i].Length; j++)
+                {
+                    Console.Write($"Moi ban nhap phan tu cua hang {i} cot {j}: ");
+                    zicZac[i][j] = int.Parse(Console.ReadLine());
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Mang ziczac la:");
+            for (int i = 0; i < zicZac.Length; i++)
+            {
+                for (int j = 0; j < zicZac[i].Length; j++)
+                {
+                    Console.Write(zicZac[i][j]);
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+
+        }
+        */
+        #endregion
         #region Bai 1
         /*
         static void Main()
@@ -93,7 +128,7 @@ namespace Chuong5
             int[,] arr1 = new int[m, n];
             int[,] arr2 = new int[a, b];
             // nhap phan tu trong mang 1 va 2
-            
+
             for (int i = 0; i < arr1.GetLength(0); i++)
             {
                 for (int j = 0; j < arr1.GetLength(1); j++)
@@ -132,7 +167,7 @@ namespace Chuong5
                 Console.WriteLine();
             }
             Console.WriteLine("Mang 1 + Mang 2:");
-            SumArray(arr1,arr2);
+            SumArray(arr1, arr2);
         }
         static void SumArray(int[,] arr1, int[,] arr2)
         {
@@ -145,12 +180,13 @@ namespace Chuong5
                 {
                     sumArray[i, j] = arr1[i, j] + arr2[i, j];
                 }
+                Console.WriteLine();
             }
             for (int i = 0; i < sumArray.GetLength(0); i++)
             {
                 for (int j = 0; j < sumArray.GetLength(1); j++)
                 {
-                    Console.Write(sumArray[i,j] + " ");
+                    Console.Write(sumArray[i, j] + " ");
                 }
                 Console.WriteLine();
             }
