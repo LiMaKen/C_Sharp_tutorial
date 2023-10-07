@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -117,57 +118,73 @@ namespace Chuong5
         #region Bai 3
         static void Main()
         {
-            Console.Write("Nhap hang cua mang 1: ");
-            int m = int.Parse(Console.ReadLine());
-            Console.Write("Nhap cot cua mang 1:");
-            int n = int.Parse(Console.ReadLine());
-            Console.Write("Nhap hang cua mang 2:");
-            int a = int.Parse(Console.ReadLine());
-            Console.Write("Nhap cot cua mang 2:");
-            int b = int.Parse(Console.ReadLine());
-            int[,] arr1 = new int[m, n];
-            int[,] arr2 = new int[a, b];
-            // nhap phan tu trong mang 1 va 2
-
-            for (int i = 0; i < arr1.GetLength(0); i++)
+            while (true)
             {
-                for (int j = 0; j < arr1.GetLength(1); j++)
+                Console.Write("Nhap hang va cot cua mang 1: ");
+                var data1 = Console.ReadLine().Split(' ');
+                int m = int.Parse(data1[0]);
+                int n = int.Parse(data1[1]);
+                Console.Write("Nhap hang va cot cua mang 2: ");
+                var data2 = Console.ReadLine().Split(' ');
+                int a = int.Parse(data2[0]);
+                int b = int.Parse(data2[1]);
+                if (n!=m || a!=b)
                 {
-                    Console.Write($"Nhap vi tri ({i},{j}) Mang 1: ");
-                    arr1[i, j] = int.Parse(Console.ReadLine());
+                    Console.WriteLine("So luong hang va cot phai khop nhau");
+                    continue;
                 }
-                Console.WriteLine();
-            }
-            for (int i = 0; i < arr2.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr2.GetLength(1); j++)
+                int[,] arr1 = new int[m, n];
+                int[,] arr2 = new int[a, b];
+                // nhap phan tu trong mang 1 va 2
+                for (int i = 0; i < arr1.GetLength(0); i++)
                 {
-                    Console.Write($"Nhap vi tri ({i},{j}) Mang 2: ");
-                    arr2[i, j] = int.Parse(Console.ReadLine());
+                    for (int j = 0; j < arr1.GetLength(1); j++)
+                    {
+                        Console.Write($"Nhap vi tri ({i},{j}) Mang 1: ");
+                        arr1[i, j] = int.Parse(Console.ReadLine());
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
-            }
-            Console.WriteLine("Mang 1:");
-            // in ra mang 1 va 2 
-            for (int i = 0; i < arr1.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr1.GetLength(1); j++)
+                for (int i = 0; i < arr2.GetLength(0); i++)
                 {
-                    Console.Write(arr1[i, j] + " ");
+                    for (int j = 0; j < arr2.GetLength(1); j++)
+                    {
+                        Console.Write($"Nhap vi tri ({i},{j}) Mang 2: ");
+                        arr2[i, j] = int.Parse(Console.ReadLine());
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
-            }
-            Console.WriteLine("Mang 2:");
-            for (int i = 0; i < arr2.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr2.GetLength(1); j++)
+                Console.WriteLine("Mang 1:");
+                // in ra mang 1 va 2 
+                for (int i = 0; i < arr1.GetLength(0); i++)
                 {
-                    Console.Write(arr2[i, j] + " ");
+                    for (int j = 0; j < arr1.GetLength(1); j++)
+                    {
+                        Console.Write(arr1[i, j] + " ");
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
+                Console.WriteLine("Mang 2:");
+                for (int i = 0; i < arr2.GetLength(0); i++)
+                {
+                    for (int j = 0; j < arr2.GetLength(1); j++)
+                    {
+                        Console.Write(arr2[i, j] + " ");
+                    }
+                    Console.WriteLine();
+                }
+                if (arr1.GetLength(0) != arr2.GetLength(0) || arr1.GetLength(1) != arr2.GetLength(1))
+                {
+                    Console.WriteLine("Sai so luong hang va cot");
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("Mang 1 + Mang 2:");
+                    SumArray(arr1, arr2);
+                }
+                continue;
             }
-            Console.WriteLine("Mang 1 + Mang 2:");
-            SumArray(arr1, arr2);
         }
         static void SumArray(int[,] arr1, int[,] arr2)
         {
