@@ -884,7 +884,6 @@ namespace Chuong5
             {
                 for (int i = 0; i < arr1.Length; i++)
                 {
-                    sumArray[index++] = arr1[i];
                     if (i == k)
                     {
                         foreach (var item in arr2)
@@ -892,6 +891,7 @@ namespace Chuong5
                             sumArray[index++] = item;
                         }
                     }
+                    sumArray[index++] = arr1[i];
                 }
             }
             return sumArray;

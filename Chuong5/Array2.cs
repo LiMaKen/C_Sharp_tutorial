@@ -116,6 +116,7 @@ namespace Chuong5
     */
         #endregion
         #region Bai 3
+        /*
         static void Main()
         {
             while (true)
@@ -208,6 +209,180 @@ namespace Chuong5
                 Console.WriteLine();
             }
         }
+        */
+        #endregion
+        #region Bai 4
+        /*
+        static void Main()
+        {
+            int[,] arr = new int[9, 13];    
+            CrossArray(arr);
+        }
+        static void CrossArray(int[,] arr)
+        {
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    if ((i == 0 || i == 8) && (j >= 4 && j <= 8) || (i == 1 || i == 2 || i == 6 || i == 7) && (j == 4 || j == 8) ||
+                        (i==3||i==5) && (j<=4 || j >=8) || i==4 && (j==0||j==12))
+                    {
+                        Console.Write(" * ");
+                    }
+                    else
+                    {
+                        Console.Write("   ");
+                    }
+                      
+                }
+                Console.WriteLine();
+            }
+        }
+        */
+        #endregion
+        #region Bai 5
+        /*
+        static void Main()
+        {
+            int m = int.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine());
+            int[,] arr = new int[m, n];
+            HCN(arr);
+        }
+        static void HCN(int[,] arr)
+        {
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {                   
+                        Console.Write(" * ");
+                }
+                Console.WriteLine();
+            }
+        }
+        */
+        #endregion
+        #region Bai 6
+        /*
+        static void Main()
+        {
+            int m = int.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine());
+            int[,] arr = new int[m, n];
+            HCN(arr);
+        }
+        static void HCN(int[,] arr)
+        {
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    if (i == 0 || j == 0 || i == arr.GetLength(0) -1   || j == arr.GetLength(1) -1  )
+                    {
+                        Console.Write(" * ");
+                    }
+                    else
+                    {
+                        Console.Write("   ");
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+        */
+        #endregion
+        #region Bai 7
+        /*    
+        static void Main()
+        {
+            int m = int.Parse(Console.ReadLine());
+            int[][] arr = new int[m][];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = new int[i + 1];
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    Console.Write(" * ");
+                }
+                Console.WriteLine();
+            }
+        }  
+        */
+        #endregion
+        #region Bai 8
+        /*
+        static void Main()
+        {
+            int h = int.Parse(Console.ReadLine());
+            string[,] arr = new string[h, 2 * h];
+            TG(arr, h);
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    Console.Write(arr[i, j]);
+                }
+                Console.WriteLine();
+            }
+        }
+        static void TG(string[,] arr, int h)
+        {
+            for (int i = 1; i <= h; i++)
+            {
+                for (int j = 1; j <= 2 * h - 1; j++)
+                {
+                    if (j >= (h - i + 1) && j <= (h + i - 1))
+                    {
+                        arr[i - 1, j - 1] = " * ";
+                    }
+                    else
+                    {
+                        arr[i - 1, j - 1] = "   ";
+                    }
+                }
+            }
+        }
+        */
+        #endregion
+        #region Bai 9
+
+        /*static void Main()
+        {
+            int h = int.Parse(Console.ReadLine());
+            string[,] arr = new string[h, 2 * h];
+            TG(arr, h);
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    Console.Write(arr[i, j]);
+                }
+                Console.WriteLine();
+            }
+        }
+        static void TG(string[,] arr, int h)
+        {
+            for (int i = 1; i <= h; i++)
+            {
+                for (int j = 1; j <= 2 * h - 1; j++)
+                {
+                    if (j >= (h - i + 1) && j <= (h + i - 1))
+                    {
+                        arr[i - 1, j - 1] = $" {i - Math.Abs(h - j)} ";
+                    }
+                    else
+                    {
+                        arr[i - 1, j - 1] = "   ";
+                    }
+                }
+            }
+        }
+        */
+        #endregion
+
+
     }
-    #endregion
 }
