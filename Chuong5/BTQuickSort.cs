@@ -124,7 +124,7 @@ namespace Chuong5
         */
         #endregion
         #region Bai 5
-        
+        /*
         static void Main()
         {
             GetData(out int[] data);
@@ -157,7 +157,9 @@ namespace Chuong5
             }
             data = datas;
         }
-        
+        */
+      
+
         #endregion
     }
 }

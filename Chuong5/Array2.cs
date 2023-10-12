@@ -292,20 +292,27 @@ namespace Chuong5
         */
         #endregion
         #region Bai 7
-        /*    
+          /*
         static void Main()
         {
             int m = int.Parse(Console.ReadLine());
-            int[][] arr = new int[m][];
+            string[][] arr = new string[m][];
             for (int i = 0; i < arr.Length; i++)
             {
-                arr[i] = new int[i + 1];
+                arr[i] = new string[i + 1];
             }
             for (int i = 0; i < arr.Length; i++)
             {
                 for (int j = 0; j < arr[i].Length; j++)
                 {
-                    Console.Write(" * ");
+                    arr[i][j] = "*";
+                }
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    Console.Write(arr[i][j]);
                 }
                 Console.WriteLine();
             }
