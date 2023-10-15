@@ -13,8 +13,8 @@ namespace Chuong5
         {
             if (left < right)
             {
-                int p = Partition(arr, left, right);
-                Quicksort(arr, left, p - 1);
+                int p = Partition(arr, left, right); 
+                Quicksort(arr, left, p - 1); 
                 Quicksort(arr, p + 1, right);
             }
         }
