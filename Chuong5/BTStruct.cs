@@ -9,7 +9,7 @@ namespace Chuong5
     internal class BTStruct
     {
         #region Bai 1
-        /*
+        
         struct Point
         {
             public Point(int x, int y)
@@ -53,12 +53,13 @@ namespace Chuong5
             var element2 = Console.ReadLine().Split(' ');
             int c = int.Parse(element2[0]);
             int d = int.Parse(element2[1]);
+            Point p1 = new Point();
             Point point1 = new Point(a, b);
             Point point2 = new Point(c, d);
             pointpoint1 = point1;
             pointpoint2 = point2;
         }
-        */
+        
         #endregion
     }
 }

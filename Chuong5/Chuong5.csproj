@@ -48,7 +48,7 @@
     <Compile Include="5.3BTQuickSort.cs" />
     <Compile Include="5.4BTSeach.cs" />
     <Compile Include="BTStruct.cs" />
-    <Compile Include="ClassArray.cs" />
+    <Compile Include="5.5ClassArray.cs" />
     <Compile Include="LambDa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuickSortHove.cs" />
