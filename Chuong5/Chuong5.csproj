@@ -43,10 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Array1.cs" />
-    <Compile Include="Array2.cs" />
-    <Compile Include="BTQuickSort.cs" />
-    <Compile Include="BTSeach.cs" />
+    <Compile Include="5.1Array1.cs" />
+    <Compile Include="5.2Array2.cs" />
+    <Compile Include="5.3BTQuickSort.cs" />
+    <Compile Include="5.4BTSeach.cs" />
+    <Compile Include="BTStruct.cs" />
     <Compile Include="ClassArray.cs" />
     <Compile Include="LambDa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +59,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-   <LangVersion>preview</LangVersion>
-</PropertyGroup>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
 </Project>

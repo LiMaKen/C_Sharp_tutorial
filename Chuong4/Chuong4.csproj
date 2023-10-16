@@ -43,11 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LocalFuntion.cs" />
-    <Compile Include="MethodOverLoading.cs" />
-    <None Include="Parameter.cs" />
-    <None Include="Funtion.cs" />
-    <Compile Include="NamingArgument.cs" />
+    <Compile Include="4.5LocalFuntion.cs" />
+    <Compile Include="4.3MethodOverLoading.cs" />
+    <None Include="4.2Parameter.cs" />
+    <None Include="4.1Funtion.cs" />
+    <Compile Include="4.4NamingArgument.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

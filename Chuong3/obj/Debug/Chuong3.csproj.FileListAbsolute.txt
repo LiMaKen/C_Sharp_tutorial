@@ -11,3 +11,11 @@ C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong3\obj\Debug\Chuong3.csproj.Suggeste
 C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong3\obj\Debug\Chuong3.csproj.CoreCompileInputs.cache
 C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong3\obj\Debug\Chuong3.exe
 C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong3\obj\Debug\Chuong3.pdb
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong3\bin\Debug\Chuong3.exe.config
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong3\bin\Debug\Chuong3.exe
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong3\bin\Debug\Chuong3.pdb
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong3\obj\Debug\Chuong3.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong3\obj\Debug\Chuong3.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong3\obj\Debug\Chuong3.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong3\obj\Debug\Chuong3.exe
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong3\obj\Debug\Chuong3.pdb

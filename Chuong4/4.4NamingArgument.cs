@@ -30,7 +30,6 @@ namespace ConsoleApp1
             Console.WriteLine(speciaLized);
         }*/
         #endregion
-
         #region Bai 2
         /*static void Main()
         {
