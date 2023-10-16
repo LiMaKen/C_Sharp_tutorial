@@ -45,17 +45,17 @@ namespace Chuong5
         }
         private static void GetData(out Point pointpoint1, out Point pointpoint2)
         {
+
+            Point point1 = new Point();
+            Point point2 = point1;
             Console.Write("Moi ban nhap diem A: ");
             var element1 = Console.ReadLine().Split(' ');
-            int a = int.Parse(element1[0]);
-            int b = int.Parse(element1[1]);
+            point1.X = int.Parse(element1[0]);
+            point1.Y = int.Parse(element1[1]);
             Console.Write("Moi ban nhap diem B: ");
             var element2 = Console.ReadLine().Split(' ');
-            int c = int.Parse(element2[0]);
-            int d = int.Parse(element2[1]);
-            Point p1 = new Point();
-            Point point1 = new Point(a, b);
-            Point point2 = new Point(c, d);
+            point2.X = int.Parse(element2[0]);
+            point2.Y = int.Parse(element2[1]);
             pointpoint1 = point1;
             pointpoint2 = point2;
         }
