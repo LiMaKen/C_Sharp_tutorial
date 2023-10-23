@@ -59,6 +59,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <LangVersion>preview</LangVersion>
+    <LangVersion>11</LangVersion>
   </PropertyGroup>
 </Project>
