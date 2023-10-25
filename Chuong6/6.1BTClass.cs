@@ -192,7 +192,7 @@ namespace Chuong6
         public string DATE { get; set; }
         public int PIN { get; set; }
 
-        public BankAccount(int idBank , string name , long monney , string bankName , string date , int pin)
+        public BankAccount(int idBank, string name, long monney, string bankName, string date, int pin)
         {
             IDBANK = idBank;
             NAME = name;
@@ -202,6 +202,41 @@ namespace Chuong6
             PIN = pin;
         }
 
+        public void AddMonney(long cash)
+        {
+            if (cash > 0)
+            {
+                MONNEY += cash;
+            }
+            
+        }
+
+        public string TakeMoney(long cash)
+        {
+            if (cash < MONNEY + 50000 && MONNEY > 0)
+            {
+                MONNEY -= cash;
+                return "Rut tien thanh cong !";
+            }
+            else
+            {
+                return "Rut tien that bai !";
+            }
+        }
+
+        public string SendMonney(BankAccount other, long cash)
+        {
+            if (cash < MONNEY + 50000 && MONNEY > 0)
+            {
+                MONNEY -= cash;
+                other.MONNEY += cash;
+                return "Chuyen tien thanh cong !";
+            }
+            else
+            {
+                return "Chuyen tien that bai, so du cua ban khong du !";
+            }
+        }
     }
     internal class Program
     {
@@ -226,7 +261,7 @@ namespace Chuong6
                 {
                     case 1:
                         BankAccount account2 = GetData();
-                        if (CheckID(account, account2, index))
+                        if (CheckID(account, account2.IDBANK, index))
                         {
                             account[index++] = account2;
                             Console.WriteLine("Tao tai khoan thanh cong !");
@@ -237,27 +272,163 @@ namespace Chuong6
                         }
                         break;
                     case 2:
+                        if (index > 0)
+                        {
+                            bool check = ShowMonney(account, index);
+                            if (!check)
+                            {
+                                Console.WriteLine("Khong tim thay thong tin tai khoan !");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach trong rong !");
+                        }
                         break;
                     case 3:
+                        if (index > 0)
+                        {
+                            bool check = AddMonneyToID(account, index);
+                            if (check)
+                            {
+                                Console.WriteLine("Da nap tien vao tai khoan thanh cong !");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Khong tim thay thong tin tai khoan !");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach trong rong !");
+                        }
                         break;
                     case 4:
+                        if (index > 0)
+                        {
+                            bool check = TakeMoneyToID(account, index);
+                            if (!check)
+                            {
+                                Console.WriteLine("Thong tin khong hop le !");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach trong rong !");
+                        }
                         break;
                     case 5:
+                        if (index > 0)
+                        {
+                            bool check = SendMoneyToID(account, index);
+                            if (!check)
+                            {
+                                Console.WriteLine("Thong tin khong hop le !");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach trong rong !");
+                        }
                         break;
                     case 6:
                         break;
                     case 7:
                         break;
                     default:
+                        Console.WriteLine("Sai lua chon !");
                         break;
                 }
             } while (x != 7);
         }
-        public static bool CheckID(BankAccount[] acc, BankAccount acc2, int index)
+
+        private static bool TakeMoneyToID(BankAccount[] account, int index)
+        {
+            Console.Write("Moi ban nhap so tai khoan :");
+            int id = int.Parse(Console.ReadLine());
+            Console.Write("Moi ban nhap ma Pin :");
+            int pin = int.Parse(Console.ReadLine());
+            for (int i = 0; i < index; i++)
+            {
+                if (account[i].IDBANK == id && account[i].PIN == pin)
+                {
+                    Console.Write("Moi ban nhap so tien can rut :");
+                    long cash = int.Parse(Console.ReadLine());
+                    Console.WriteLine(account[i].TakeMoney(cash));
+                    return true;
+                }
+            }
+            return false;
+        }
+    
+            
+        private static bool SendMoneyToID(BankAccount[] account, int index)
+        {
+            Console.Write("Moi ban nhap so tai khoan :");
+            int id = int.Parse(Console.ReadLine());
+            Console.Write("Moi ban nhap ma Pin :");
+            int pin = int.Parse(Console.ReadLine());
+            for (int i = 0; i < index; i++)
+            {
+                if (account[i].IDBANK == id && account[i].PIN == pin)
+                {
+                    Console.Write("Moi ban nhap so tai khoan ngoi thu huong :");
+                    int idSend = int.Parse(Console.ReadLine());
+                    Console.Write("Moi ban nhap so tien can chuyen :");
+                    long cash = int.Parse(Console.ReadLine());
+                    for (int j = 0; j < index; j++)
+                    {
+                        if (account[j].IDBANK == idSend)
+                        {
+                            Console.WriteLine(account[i].SendMonney(account[j], cash));
+                            return true;
+                        }                    
+                    }
+                }
+            }
+            return false;
+        }
+
+        private static bool AddMonneyToID(BankAccount[] account, int index)
+        {
+            Console.Write("Moi ban nhap so tai khoan :");
+            int id = int.Parse(Console.ReadLine());
+            Console.Write("Moi ban nhap co tien muon nap: ");
+            long cash = long.Parse(Console.ReadLine());
+            for (int i = 0; i < index; i++)
+            {
+                if (account[i].IDBANK == id)
+                {
+                    if (cash > 0)
+                    {
+                        account[i].AddMonney(cash);
+                        return true;
+                    }  
+                }
+            }
+            return false;
+        }
+
+        private static bool ShowMonney(BankAccount[] account, int index)
+        {
+            Console.Write("Moi ban nhap so tai khoan :");
+            int id = int.Parse(Console.ReadLine());
+            for (int i = 0; i < index; i++)
+            {
+                if (account[i].IDBANK == id)
+                {
+                    Console.WriteLine($"So du cua ban la : {account[i].MONNEY}");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool CheckID(BankAccount[] acc, int id, int index)
         {
             for (int i = 0; i < index; i++)
             {
-                if (acc[i].IDBANK == acc2.IDBANK)
+                if (acc[i].IDBANK == id)
                 {
                     return false;
                 }
@@ -280,12 +451,12 @@ namespace Chuong6
                 string date = Console.ReadLine();
                 Console.WriteLine("Nhap vao ma PIN: ");
                 string checkPin = Console.ReadLine();
-                if (checkID == "" || name == "" || checkMonney == "" || bankName == "" || date == "" || checkPin == "") 
+                if (checkID == "" || name == "" || checkMonney == "" || bankName == "" || date == "" || checkPin == "")
                 {
                     Console.WriteLine("Nhap du cac thong tin");
                     continue;
                 }
-                else if (int.TryParse(checkID,out int id) == false || long.TryParse(checkMonney, out long monney) == false || int.TryParse(checkPin, out int pin) == false)
+                else if (int.TryParse(checkID, out int id) == false || long.TryParse(checkMonney, out long monney) == false || int.TryParse(checkPin, out int pin) == false)
                 {
                     Console.WriteLine("Sai dinh dang");
                     continue;
@@ -302,7 +473,7 @@ namespace Chuong6
                 }
                 else
                 {
-                    return new BankAccount(id,name,monney,bankName,date,pin);
+                    return new BankAccount(id, name, monney, bankName, date, pin);
                 }
             }
         }
