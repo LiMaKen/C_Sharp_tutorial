@@ -514,6 +514,7 @@ namespace Chuong6
     */
     #endregion
     #region Bai 5
+    /*
     class Student
     {
         public string MSV { get; set; }
@@ -674,7 +675,7 @@ namespace Chuong6
 
         private static void Status(Student[] students)
         {
-            bool CheckCity(string city , Information[] check)
+            bool CheckCity(string city, Information[] check)
             {
                 foreach (var item in check)
                 {
@@ -708,15 +709,18 @@ namespace Chuong6
                         result[size] = new Information();
                         result[size].CITY = students[i].CITY;
                         result[size].AMOUNT = Cout(students[i].CITY, students);
-
+                        size++;
                     }
                 }
             }
             var finalResult = new Information[size];
-            finalResult.CopyTo(result, 0);
-            for (int i = 0; i < finalResult.Length; i++)
+            Array.Copy(result, finalResult, size);
+            for (int i = 0; i < size; i++)
             {
+
                 Console.WriteLine($"{finalResult[i].CITY} + {finalResult[i].AMOUNT} ");
+
+
             }
         }
 
@@ -732,7 +736,7 @@ namespace Chuong6
                     if (students[i] == student)
                     {
                         students[i] = null;
-                        for (int j = i; j < students.Length -1; j++)
+                        for (int j = i; j < students.Length - 1; j++)
                         {
                             students[j] = students[j + 1];
                         }
@@ -781,14 +785,14 @@ namespace Chuong6
 
         public static void SortStudentByAll(Student[] students, int index)
         {
-            
+
             for (int i = 0; i < index; i++)
             {
                 for (int j = i + 1; j < index; j++)
                 {
                     var compareName = students[i].NAME.ToLower().CompareTo(students[j].NAME.ToLower());
                     var compareSurName = students[i].SURNAME.ToLower().CompareTo(students[j].SURNAME.ToLower());
-                    if (students[i].TEST < students[j].TEST || students[i].TEST == students[j].TEST && compareName > 0 || students[i].TEST == students[j].TEST && compareName  == 0 && compareSurName > 0 )
+                    if (students[i].TEST < students[j].TEST || students[i].TEST == students[j].TEST && compareName > 0 || students[i].TEST == students[j].TEST && compareName == 0 && compareSurName > 0)
                     {
                         Swap(ref students[i], ref students[j]);
                     }
@@ -805,7 +809,7 @@ namespace Chuong6
                 {
                     if (students[i].NAME.ToLower().CompareTo(students[j].NAME.ToLower()) > 0)
                     {
-                        Swap(ref students[i],ref students[j]);
+                        Swap(ref students[i], ref students[j]);
                     }
                 }
             }
@@ -880,5 +884,6 @@ namespace Chuong6
             return new Student(msv, name[0], name[1], name[2], city, test, major);
         }
     }
+    */
     #endregion
 }
