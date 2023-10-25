@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Data;
 using System.Data.Common;
+using System.Globalization;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -182,7 +185,7 @@ namespace Chuong6
     */
     #endregion
     #region Bai 4
-
+    /*
     class BankAccount
     {
         public int IDBANK { get; set; }
@@ -202,18 +205,24 @@ namespace Chuong6
             PIN = pin;
         }
 
-        public void AddMonney(long cash)
+        public void ShowMonney()
+        {
+            Console.WriteLine($"Tai khoan {NAME} co so du la : {MONNEY}");
+        }
+
+        public long AddMonney(long cash)
         {
             if (cash > 0)
             {
                 MONNEY += cash;
+                return cash;
             }
-            
+            return 0;
         }
 
         public string TakeMoney(long cash)
         {
-            if (cash < MONNEY + 50000 && MONNEY > 0)
+            if (cash < MONNEY - 50000 && MONNEY > 0)
             {
                 MONNEY -= cash;
                 return "Rut tien thanh cong !";
@@ -226,7 +235,7 @@ namespace Chuong6
 
         public string SendMonney(BankAccount other, long cash)
         {
-            if (cash < MONNEY + 50000 && MONNEY > 0)
+            if (cash < MONNEY - 50000 && MONNEY > 0)
             {
                 MONNEY -= cash;
                 other.MONNEY += cash;
@@ -234,7 +243,7 @@ namespace Chuong6
             }
             else
             {
-                return "Chuyen tien that bai, so du cua ban khong du !";
+                return "Chuyen tien that bai !";
             }
         }
     }
@@ -261,7 +270,7 @@ namespace Chuong6
                 {
                     case 1:
                         BankAccount account2 = GetData();
-                        if (CheckID(account, account2.IDBANK, index))
+                        if (CheckID(account, account2.IDBANK) == null)
                         {
                             account[index++] = account2;
                             Console.WriteLine("Tao tai khoan thanh cong !");
@@ -274,11 +283,7 @@ namespace Chuong6
                     case 2:
                         if (index > 0)
                         {
-                            bool check = ShowMonney(account, index);
-                            if (!check)
-                            {
-                                Console.WriteLine("Khong tim thay thong tin tai khoan !");
-                            }
+                            ShowMonney(account);
                         }
                         else
                         {
@@ -288,15 +293,7 @@ namespace Chuong6
                     case 3:
                         if (index > 0)
                         {
-                            bool check = AddMonneyToID(account, index);
-                            if (check)
-                            {
-                                Console.WriteLine("Da nap tien vao tai khoan thanh cong !");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Khong tim thay thong tin tai khoan !");
-                            }
+                            AddMonneyToID(account);
                         }
                         else
                         {
@@ -306,11 +303,7 @@ namespace Chuong6
                     case 4:
                         if (index > 0)
                         {
-                            bool check = TakeMoneyToID(account, index);
-                            if (!check)
-                            {
-                                Console.WriteLine("Thong tin khong hop le !");
-                            }
+                            TakeMoney(account);
                         }
                         else
                         {
@@ -320,11 +313,7 @@ namespace Chuong6
                     case 5:
                         if (index > 0)
                         {
-                            bool check = SendMoneyToID(account, index);
-                            if (!check)
-                            {
-                                Console.WriteLine("Thong tin khong hop le !");
-                            }
+                            SendMoney(account);
                         }
                         else
                         {
@@ -332,8 +321,17 @@ namespace Chuong6
                         }
                         break;
                     case 6:
+                        if (index > 0)
+                        {
+                            ShowBankAcc(account);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach trong rong !");
+                        }
                         break;
                     case 7:
+                        Console.WriteLine("Tam biet !");
                         break;
                     default:
                         Console.WriteLine("Sai lua chon !");
@@ -342,114 +340,149 @@ namespace Chuong6
             } while (x != 7);
         }
 
-        private static bool TakeMoneyToID(BankAccount[] account, int index)
+        private static void ShowBankAcc(BankAccount[] account)
         {
-            Console.Write("Moi ban nhap so tai khoan :");
-            int id = int.Parse(Console.ReadLine());
-            Console.Write("Moi ban nhap ma Pin :");
-            int pin = int.Parse(Console.ReadLine());
-            for (int i = 0; i < index; i++)
+            var titleID = "So TK";
+            var titleOwner = "Chu TK";
+            var titleMoney = "So Du";
+            var titleBankName = "Ngan Hang";
+            var titleDate = "Han Su Dung";
+            var titlePin = "Ma PIN";
+            Console.WriteLine($"{titleID,-15:d}{titleOwner,-20:d}{titleMoney,-15:d}" +
+                        $"{titleBankName,-15:d}{titleDate,-15:d}{titlePin,-10:d}");
+            foreach (var item in account)
             {
-                if (account[i].IDBANK == id && account[i].PIN == pin)
+                if (item != null)
                 {
-                    Console.Write("Moi ban nhap so tien can rut :");
-                    long cash = int.Parse(Console.ReadLine());
-                    Console.WriteLine(account[i].TakeMoney(cash));
-                    return true;
+                    Console.WriteLine($"{item.IDBANK,-15:d}{item.NAME,-20:d}" +
+                       $"{item.MONNEY,-15:d}{item.BANKNAME,-15:d}{item.DATE,-15:d}" +
+                       $"{item.PIN,-10:d}");
+                }
+                else
+                {
+                    break;
                 }
             }
-            return false;
-        }
-    
-            
-        private static bool SendMoneyToID(BankAccount[] account, int index)
-        {
-            Console.Write("Moi ban nhap so tai khoan :");
-            int id = int.Parse(Console.ReadLine());
-            Console.Write("Moi ban nhap ma Pin :");
-            int pin = int.Parse(Console.ReadLine());
-            for (int i = 0; i < index; i++)
-            {
-                if (account[i].IDBANK == id && account[i].PIN == pin)
-                {
-                    Console.Write("Moi ban nhap so tai khoan ngoi thu huong :");
-                    int idSend = int.Parse(Console.ReadLine());
-                    Console.Write("Moi ban nhap so tien can chuyen :");
-                    long cash = int.Parse(Console.ReadLine());
-                    for (int j = 0; j < index; j++)
-                    {
-                        if (account[j].IDBANK == idSend)
-                        {
-                            Console.WriteLine(account[i].SendMonney(account[j], cash));
-                            return true;
-                        }                    
-                    }
-                }
-            }
-            return false;
         }
 
-        private static bool AddMonneyToID(BankAccount[] account, int index)
+        private static void TakeMoney(BankAccount[] account)
+        {
+            Console.Write("Moi ban nhap so tai khoan :");
+            int id = int.Parse(Console.ReadLine());
+            Console.Write("Moi ban nhap ma Pin :");
+            int pin = int.Parse(Console.ReadLine());
+            var acc = CheckID(account, id);
+            if (acc != null && acc.PIN == pin)
+            {
+                Console.Write("Moi ban nhap so tien can rut :");
+                long cash = int.Parse(Console.ReadLine());
+                Console.WriteLine(acc.TakeMoney(cash));
+                acc.ShowMonney();
+            }
+            else
+            {
+                Console.WriteLine("Thong tin khong hop le !");
+            }
+        }
+
+        private static void SendMoney(BankAccount[] account)
+        {
+            Console.Write("Moi ban nhap so tai khoan :");
+            int id = int.Parse(Console.ReadLine());
+            Console.Write("Moi ban nhap ma Pin :");
+            int pin = int.Parse(Console.ReadLine());
+            var acc = CheckID(account, id);
+            if (acc != null && acc.PIN == pin)
+            {
+                Console.Write("Moi ban nhap so tai khoan ngoi thu huong :");
+                int idSend = int.Parse(Console.ReadLine());
+                Console.Write("Moi ban nhap so tien can chuyen :");
+                long cash = int.Parse(Console.ReadLine());
+                var acc2 = CheckID(account, idSend);
+                if (acc2 != null)
+                {
+                    Console.WriteLine(acc.SendMonney(acc2, cash));
+                    acc.ShowMonney();
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay thong tin tai khoan thu huong !");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay thong tin tai khoan !");
+            }
+        }
+
+        private static void AddMonneyToID(BankAccount[] account)
         {
             Console.Write("Moi ban nhap so tai khoan :");
             int id = int.Parse(Console.ReadLine());
             Console.Write("Moi ban nhap co tien muon nap: ");
             long cash = long.Parse(Console.ReadLine());
-            for (int i = 0; i < index; i++)
+            var acc = CheckID(account, id);
+            if (acc != null)
             {
-                if (account[i].IDBANK == id)
+                long check = acc.AddMonney(cash);
+                if (check > 0)
                 {
-                    if (cash > 0)
-                    {
-                        account[i].AddMonney(cash);
-                        return true;
-                    }  
+                    Console.WriteLine("Nap tien thanh cong !");
+                    acc.ShowMonney();
                 }
+                else
+                {
+                    Console.WriteLine("Nap tien that bai !");
+                }
+
             }
-            return false;
+            else
+            {
+                Console.WriteLine("Khong tim thay thong tin tai khoan");
+            }
         }
 
-        private static bool ShowMonney(BankAccount[] account, int index)
+        private static void ShowMonney(BankAccount[] account)
         {
             Console.Write("Moi ban nhap so tai khoan :");
-            int id = int.Parse(Console.ReadLine());
-            for (int i = 0; i < index; i++)
+            var id = int.Parse(Console.ReadLine());
+            var acc = CheckID(account, id);
+            if (acc != null)
             {
-                if (account[i].IDBANK == id)
-                {
-                    Console.WriteLine($"So du cua ban la : {account[i].MONNEY}");
-                    return true;
-                }
+                acc.ShowMonney();
             }
-            return false;
+            else
+            {
+                Console.WriteLine("Khong tim thay thong tin tai khoan !");
+            }
         }
 
-        public static bool CheckID(BankAccount[] acc, int id, int index)
+        public static BankAccount CheckID(BankAccount[] acc, int id)
         {
-            for (int i = 0; i < index; i++)
+            foreach (var item in acc)
             {
-                if (acc[i].IDBANK == id)
+                if (item != null && item.IDBANK == id)
                 {
-                    return false;
+                    return item;
                 }
             }
-            return true;
+            return null;
         }
         public static BankAccount GetData()
         {
             while (true)
             {
-                Console.Write("Nhap vao so tai khoan :");
+                Console.Write("Nhap vao so tai khoan: ");
                 string checkID = Console.ReadLine();
-                Console.WriteLine("Nhap vao ten tai khoan");
+                Console.Write("Nhap vao ten tai khoan: ");
                 string name = Console.ReadLine();
-                Console.WriteLine("Nhap vao so tien :");
+                Console.Write("Nhap vao so tien: ");
                 string checkMonney = Console.ReadLine();
-                Console.WriteLine("Nhap vao ngan hang phat hanh");
+                Console.Write("Nhap vao ngan hang phat hanh: ");
                 string bankName = Console.ReadLine();
-                Console.WriteLine("Nhap vao thoi diem het hieu luc: ");
+                Console.Write("Nhap vao thoi diem het hieu luc: ");
                 string date = Console.ReadLine();
-                Console.WriteLine("Nhap vao ma PIN: ");
+                Console.Write("Nhap vao ma PIN: ");
                 string checkPin = Console.ReadLine();
                 if (checkID == "" || name == "" || checkMonney == "" || bankName == "" || date == "" || checkPin == "")
                 {
@@ -478,6 +511,374 @@ namespace Chuong6
             }
         }
     }
+    */
+    #endregion
+    #region Bai 5
+    class Student
+    {
+        public string MSV { get; set; }
+        public string SURNAME { get; set; }
+        public string MIDDLENAME { get; set; }
+        public string NAME { get; set; }
+        public string CITY { get; set; }
+        public double TEST { get; set; }
+        public string MAJOR { get; set; }
 
+        public Student(string MSV, string SURNAME, string MIDDLENAME, string NAME, string CITY, double TEST, string MAJOR)
+        {
+            this.MSV = MSV;
+            this.SURNAME = SURNAME;
+            this.MIDDLENAME = MIDDLENAME;
+            this.NAME = NAME;
+            this.CITY = CITY;
+            this.TEST = TEST;
+            this.MAJOR = MAJOR;
+        }
+    }
+    internal class chuong6
+    {
+        static void Main()
+        {
+            Student[] students = new Student[100];
+            int index = 0;
+            int x;
+            do
+            {
+                Console.OutputEncoding = Encoding.UTF8;
+                Console.WriteLine("1) Thêm mới một sinh viên vào danh sách.\r\n" +
+                "2) Hiển thị danh sách sinh viên ra màn hình ở dạng bảng gồm các hàng, cột ngay ngắn.\r\n" +
+                "3) Sắp xếp danh sách sinh viên theo điểm TB giảm dần.\r\n" +
+                "4) Sắp xếp danh sách sinh viên theo tên tăng dần.\r\n" +
+                "5) Sắp xếp danh sách sinh viên theo điểm TB giảm dần, tên tăng dần, họ tăng dần.\r\n" +
+                "6) Tìm sinh viên theo tên. Hiển thị kết quả tìm được.\r\n" +
+                "7) Tìm sinh viên theo tỉnh. Hiển thị kết quả tìm được.\r\n" +
+                "8) Xóa sinh viên theo mã cho trước khỏi danh sách.\r\n" +
+                "9) Liệt kê số lượng sinh viên theo từng tỉnh. Sắp xếp giảm dần theo số lượng.\r\n" +
+                "10) Sửa điểm TB cho sinh viên theo mã sinh viên.\r\n" +
+                "11) Kết thúc chương trình.");
+                Console.Write("Nhap lua chon cua ban: ");
+                x = int.Parse(Console.ReadLine());
+                switch (x)
+                {
+                    case 1:
+                        Student student = CreateStudent();
+                        if (CheckStudent(students, student.MSV) == null)
+                        {
+                            students[index++] = student;
+                            Console.WriteLine("Them thanh cong !");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Sinh vien da ton tai !");
+                        }
+                        break;
+                    case 2:
+                        if (index > 0)
+                        {
+                            ShowStudent(students);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach sinh vien trong !");
+                        }
+                        break;
+                    case 3:
+                        if (index > 0)
+                        {
+                            SortStudentByTest(students, index);
+                            Console.WriteLine("Danh sach sinh vien da duoc sap xep!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach sinh vien trong !");
+                        }
+                        break;
+                    case 4:
+                        if (index > 0)
+                        {
+                            SortStudentByName(students, index);
+                            Console.WriteLine("Danh sach sinh vien da duoc sap xep!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach sinh vien trong !");
+                        }
+                        break;
+                    case 5:
+                        if (index > 0)
+                        {
+                            SortStudentByAll(students, index);
+                            Console.WriteLine("Danh sach sinh vien da duoc sap xep!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach sinh vien trong !");
+                        }
+                        break;
+                    case 6:
+                        if (index > 0)
+                        {
+                            SeachStudentByName(students, index);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach sinh vien trong !");
+                        }
+                        break;
+                    case 7:
+                        if (index > 0)
+                        {
+                            SeachStudentByCity(students, index);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach sinh vien trong !");
+                        }
+                        break;
+                    case 8:
+                        if (index > 0)
+                        {
+                            DeleteStudentByMsv(students);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach sinh vien trong !");
+                        }
+                        break;
+                    case 9:
+                        if (index > 0)
+                        {
+                            Status(students);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach sinh vien trong !");
+                        }
+                        break;
+                    case 10:
+                        break;
+                    case 11:
+                        Console.WriteLine("Tam biet !");
+                        break;
+                    default:
+                        Console.WriteLine("Sai lua chon !");
+                        break;
+                }
+            } while (x != 11);
+        }
+        class Information
+        {
+            public string CITY { get; set; }
+            public int AMOUNT { get; set; }
+        }
+
+        private static void Status(Student[] students)
+        {
+            bool CheckCity(string city , Information[] check)
+            {
+                foreach (var item in check)
+                {
+                    if (item != null && city.CompareTo(item.CITY) == 0)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            int Cout(string city, Student[] student)
+            {
+                int cout = 0;
+                foreach (var item in student)
+                {
+                    if (item != null && item.CITY.CompareTo(city) == 0)
+                    {
+                        cout++;
+                    }
+                }
+                return cout;
+            }
+            Information[] result = new Information[students.Length];
+            int size = 0;
+            for (int i = 0; i < students.Length; i++)
+            {
+                if (students[i] != null)
+                {
+                    if (CheckCity(students[i].CITY, result))
+                    {
+                        result[size] = new Information();
+                        result[size].CITY = students[i].CITY;
+                        result[size].AMOUNT = Cout(students[i].CITY, students);
+
+                    }
+                }
+            }
+            var finalResult = new Information[size];
+            finalResult.CopyTo(result, 0);
+            for (int i = 0; i < finalResult.Length; i++)
+            {
+                Console.WriteLine($"{finalResult[i].CITY} + {finalResult[i].AMOUNT} ");
+            }
+        }
+
+        private static void DeleteStudentByMsv(Student[] students)
+        {
+            Console.Write("Nhap ma sinh vien muon xoa: ");
+            string msv = Console.ReadLine();
+            var student = CheckStudent(students, msv);
+            if (student != null)
+            {
+                for (int i = 0; i < students.Length; i++)
+                {
+                    if (students[i] == student)
+                    {
+                        students[i] = null;
+                        for (int j = i; j < students.Length -1; j++)
+                        {
+                            students[j] = students[j + 1];
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay sinh vien !");
+            }
+        }
+
+        private static void SeachStudentByCity(Student[] students, int index)
+        {
+            Console.Write("Nhap tinh thanh pho can tim: ");
+            string cityName = Console.ReadLine();
+            Student[] studentSeach = new Student[index];
+            int size = 0;
+            foreach (var item in students)
+            {
+                if (item != null && item.CITY.CompareTo(cityName) == 0)
+                {
+                    studentSeach[size++] = item;
+                }
+            }
+            Console.WriteLine("Danh sach tim kiem : ");
+            ShowStudent(studentSeach);
+        }
+
+        public static void SeachStudentByName(Student[] students, int index)
+        {
+            Console.Write("Nhap ten sinh vien can tim: ");
+            string name = Console.ReadLine();
+            Student[] studentSeach = new Student[index];
+            int size = 0;
+            foreach (var item in students)
+            {
+                if (item != null && item.NAME.CompareTo(name) == 0)
+                {
+                    studentSeach[size++] = item;
+                }
+            }
+            Console.WriteLine("Danh sach tim kiem : ");
+            ShowStudent(studentSeach);
+        }
+
+        public static void SortStudentByAll(Student[] students, int index)
+        {
+            
+            for (int i = 0; i < index; i++)
+            {
+                for (int j = i + 1; j < index; j++)
+                {
+                    var compareName = students[i].NAME.ToLower().CompareTo(students[j].NAME.ToLower());
+                    var compareSurName = students[i].SURNAME.ToLower().CompareTo(students[j].SURNAME.ToLower());
+                    if (students[i].TEST < students[j].TEST || students[i].TEST == students[j].TEST && compareName > 0 || students[i].TEST == students[j].TEST && compareName  == 0 && compareSurName > 0 )
+                    {
+                        Swap(ref students[i], ref students[j]);
+                    }
+
+                }
+            }
+        }
+
+        public static void SortStudentByName(Student[] students, int index)
+        {
+            for (int i = 0; i < index; i++)
+            {
+                for (int j = i + 1; j < index; j++)
+                {
+                    if (students[i].NAME.ToLower().CompareTo(students[j].NAME.ToLower()) > 0)
+                    {
+                        Swap(ref students[i],ref students[j]);
+                    }
+                }
+            }
+        }
+
+        public static void SortStudentByTest(Student[] students, int index)
+        {
+            for (int i = 0; i < index; i++)
+            {
+                for (int j = i + 1; j < index; j++)
+                {
+                    if (students[i].TEST < students[j].TEST)
+                    {
+                        Swap(ref students[i], ref students[j]);
+                    }
+                }
+            }
+        }
+
+        public static void Swap(ref Student student1, ref Student student2)
+        {
+            Student tmp = student1;
+            student1 = student2;
+            student2 = tmp;
+        }
+
+        public static void ShowStudent(Student[] students)
+        {
+            var titleMSV = "MSV";
+            var titleName = "Ho Ten";
+            var titleCity = "Thanh Pho";
+            var titleTest = "Diem TB";
+            var titleMajor = "Chuyen Nganh";
+            Console.WriteLine($"{titleMSV,-15}{titleName,-20}{titleCity,-15}{titleTest,-15}{titleMajor,-15}");
+            foreach (var item in students)
+            {
+                if (item != null)
+                {
+                    Console.WriteLine($"{item.MSV,-15}{item.NAME,-20}{item.CITY,-15}{item.TEST,-15}{item.MAJOR,-15}");
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        public static Student CheckStudent(Student[] students, string msv)
+        {
+            foreach (var item in students)
+            {
+                if (item != null && item.MSV == msv)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public static Student CreateStudent()
+        {
+            Console.Write("Nhap ma sinh vien: ");
+            string msv = Console.ReadLine();
+            Console.Write("Nhap ho va ten: ");
+            var name = Console.ReadLine().Split(' ');
+            Console.Write("Nhap tinh thanh pho: ");
+            string city = Console.ReadLine();
+            Console.Write("Nhap diem trung binh: ");
+            double test = double.Parse(Console.ReadLine());
+            Console.Write("Nhap chuyen nganh hoc: ");
+            string major = Console.ReadLine();
+            return new Student(msv, name[0], name[1], name[2], city, test, major);
+        }
+    }
     #endregion
 }
