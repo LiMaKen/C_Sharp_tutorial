@@ -657,6 +657,14 @@ namespace Chuong6
                         }
                         break;
                     case 10:
+                        if (index > 0)
+                        {
+                            EditTest(students);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Danh sach sinh vien trong !");
+                        }
                         break;
                     case 11:
                         Console.WriteLine("Tam biet !");
@@ -667,6 +675,25 @@ namespace Chuong6
                 }
             } while (x != 11);
         }
+
+        private static void EditTest(Student[] students)
+        {
+            Console.Write("Nhap ma sinh vien muon xoa: ");
+            string msv = Console.ReadLine();
+            var studen = CheckStudent(students, msv);
+            if (studen != null)
+            {
+                Console.Write("Nhap so diem TB can thay doi: ");
+                double edit = double.Parse(Console.ReadLine());
+                studen.TEST = edit;
+                Console.WriteLine("Diem TB da duoc thay doi !");
+            }
+            else
+            {
+                Console.WriteLine("Ma sinh vien khong hop le !");
+            }
+        }
+
         class Information
         {
             public string CITY { get; set; }
@@ -715,12 +742,10 @@ namespace Chuong6
             }
             var finalResult = new Information[size];
             Array.Copy(result, finalResult, size);
+            Array.Sort(finalResult,(p1,p2) => p2.AMOUNT - p1.AMOUNT );
             for (int i = 0; i < size; i++)
             {
-
                 Console.WriteLine($"{finalResult[i].CITY} + {finalResult[i].AMOUNT} ");
-
-
             }
         }
 
