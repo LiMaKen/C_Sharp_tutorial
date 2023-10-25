@@ -1158,6 +1158,7 @@ namespace Chuong5
         */
         #endregion
         #region Bai 12
+        /*
         struct ATM
         {
             public ATM(int ID, int MONNEY, bool STATUS, int CARDMAIN)
@@ -1520,6 +1521,7 @@ namespace Chuong5
                 return new ATM(id, monney, status, cardMain);
             }
         }
+        */
         #endregion
     }
 }
