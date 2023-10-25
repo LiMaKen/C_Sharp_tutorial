@@ -6,3 +6,11 @@ C:\Users\Admin\Desktop\học tập\Csharp\Chuong6\obj\Debug\Chuong6.csproj.Sugge
 C:\Users\Admin\Desktop\học tập\Csharp\Chuong6\obj\Debug\Chuong6.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\học tập\Csharp\Chuong6\obj\Debug\Chuong6.exe
 C:\Users\Admin\Desktop\học tập\Csharp\Chuong6\obj\Debug\Chuong6.pdb
+C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong6\bin\Debug\Chuong6.exe.config
+C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong6\bin\Debug\Chuong6.exe
+C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong6\bin\Debug\Chuong6.pdb
+C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong6\obj\Debug\Chuong6.csproj.AssemblyReference.cache
+C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong6\obj\Debug\Chuong6.csproj.SuggestedBindingRedirects.cache
+C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong6\obj\Debug\Chuong6.csproj.CoreCompileInputs.cache
+C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong6\obj\Debug\Chuong6.exe
+C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong6\obj\Debug\Chuong6.pdb
