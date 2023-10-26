@@ -727,15 +727,15 @@ namespace Chuong6
             }
             Information[] result = new Information[students.Length];
             int size = 0;
-            for (int i = 0; i < students.Length; i++)
+            foreach (var item in students)
             {
-                if (students[i] != null)
+                if (item != null)
                 {
-                    if (CheckCity(students[i].CITY, result))
+                    if (CheckCity(item.CITY, result))
                     {
                         result[size] = new Information();
-                        result[size].CITY = students[i].CITY;
-                        result[size].AMOUNT = Cout(students[i].CITY, students);
+                        result[size].CITY = item.CITY;
+                        result[size].AMOUNT = Cout(item.CITY, students);
                         size++;
                     }
                 }
@@ -743,9 +743,9 @@ namespace Chuong6
             var finalResult = new Information[size];
             Array.Copy(result, finalResult, size);
             Array.Sort(finalResult,(p1,p2) => p2.AMOUNT - p1.AMOUNT );
-            for (int i = 0; i < size; i++)
+            foreach (var item in finalResult)
             {
-                Console.WriteLine($"{finalResult[i].CITY} + {finalResult[i].AMOUNT} ");
+                Console.WriteLine($"{item.CITY} + {item.AMOUNT} ");
             }
         }
 
