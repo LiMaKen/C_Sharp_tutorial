@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="6.1BTClass.cs" />
     <Compile Include="BTBox.cs" />
+    <Compile Include="BTPartial\Staff.cs" />
+    <Compile Include="BTPartial\Staff1.cs" />
     <Compile Include="BTStatic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,4 +54,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <LangVersion>11</LangVersion>
+  </PropertyGroup>
 </Project>

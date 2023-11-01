@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace Chuong6
+namespace Chuong6.Box
 {
     #region Bai 1
     /*
