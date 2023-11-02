@@ -45,8 +45,16 @@
   <ItemGroup>
     <Compile Include="6.1BTClass.cs" />
     <Compile Include="BTBox.cs" />
+    <Compile Include="BToutinClass\Staff.cs" />
+    <Compile Include="BToutinClass\staff1.cs" />
+    <Compile Include="BToutinClass\Student.cs" />
+    <Compile Include="BToutinClass\Student1.cs" />
+    <Compile Include="BTPartial\Bank.cs" />
+    <Compile Include="BTPartial\Bank1.cs" />
     <Compile Include="BTPartial\Staff.cs" />
     <Compile Include="BTPartial\Staff1.cs" />
+    <Compile Include="BTPartial\Student.cs" />
+    <Compile Include="BTPartial\Student1.cs" />
     <Compile Include="BTStatic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
