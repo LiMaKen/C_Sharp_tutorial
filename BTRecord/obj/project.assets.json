@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\save\\hoc tap\\C#\\Csharp\\BTRecord\\BTRecord 6.7.csproj",
-      "projectName": "BTRecord 6.7",
-      "projectPath": "E:\\save\\hoc tap\\C#\\Csharp\\BTRecord\\BTRecord 6.7.csproj",
+      "projectUniqueName": "E:\\save\\hoc tap\\C#\\Csharp\\BTRecord\\6.7BTRecord.csproj",
+      "projectName": "6.7BTRecord",
+      "projectPath": "E:\\save\\hoc tap\\C#\\Csharp\\BTRecord\\6.7BTRecord.csproj",
       "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
       "outputPath": "E:\\save\\hoc tap\\C#\\Csharp\\BTRecord\\obj\\",
       "projectStyle": "PackageReference",

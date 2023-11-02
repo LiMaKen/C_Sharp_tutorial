@@ -44,18 +44,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="6.1BTClass.cs" />
-    <Compile Include="BTBox.cs" />
-    <Compile Include="BToutinClass\Staff.cs" />
-    <Compile Include="BToutinClass\staff1.cs" />
-    <Compile Include="BToutinClass\Student.cs" />
-    <Compile Include="BToutinClass\Student1.cs" />
-    <Compile Include="BTPartial\Bank.cs" />
-    <Compile Include="BTPartial\Bank1.cs" />
-    <Compile Include="BTPartial\Staff.cs" />
-    <Compile Include="BTPartial\Staff1.cs" />
-    <Compile Include="BTPartial\Student.cs" />
-    <Compile Include="BTPartial\Student1.cs" />
-    <Compile Include="BTStatic.cs" />
+    <Compile Include="6.4BTBox.cs" />
+    <Compile Include="6.6BToutinClass\Staff.cs" />
+    <Compile Include="6.6BToutinClass\staff1.cs" />
+    <Compile Include="6.6BToutinClass\Student.cs" />
+    <Compile Include="6.6BToutinClass\Student1.cs" />
+    <Compile Include="6.5BTPartial\Bank.cs" />
+    <Compile Include="6.5BTPartial\Bank1.cs" />
+    <Compile Include="6.5BTPartial\Staff.cs" />
+    <Compile Include="6.5BTPartial\Staff1.cs" />
+    <Compile Include="6.5BTPartial\Student.cs" />
+    <Compile Include="6.5BTPartial\Student1.cs" />
+    <Compile Include="6.3BTStatic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

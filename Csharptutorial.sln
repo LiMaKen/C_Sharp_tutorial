@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chuong5", "Chuong5\Chuong5.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chuong6", "Chuong6\Chuong6.csproj", "{69515B29-BC00-49B0-894B-C7A64C5FDD7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTRecord 6.7", "BTRecord\BTRecord 6.7.csproj", "{0683F948-8B75-4168-9A58-0399D2B4A349}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.7BTRecord", "BTRecord\6.7BTRecord.csproj", "{0683F948-8B75-4168-9A58-0399D2B4A349}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

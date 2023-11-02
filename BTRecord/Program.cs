@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System;
 #region Bai 1
 /*
 public class Run
