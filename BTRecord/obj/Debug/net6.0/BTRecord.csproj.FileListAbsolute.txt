@@ -1,0 +1,15 @@
+E:\save\hoc tap\C#\Csharp\BTRecord\bin\Debug\net6.0\BTRecord.exe
+E:\save\hoc tap\C#\Csharp\BTRecord\bin\Debug\net6.0\BTRecord.deps.json
+E:\save\hoc tap\C#\Csharp\BTRecord\bin\Debug\net6.0\BTRecord.runtimeconfig.json
+E:\save\hoc tap\C#\Csharp\BTRecord\bin\Debug\net6.0\BTRecord.dll
+E:\save\hoc tap\C#\Csharp\BTRecord\bin\Debug\net6.0\BTRecord.pdb
+E:\save\hoc tap\C#\Csharp\BTRecord\obj\Debug\net6.0\BTRecord.csproj.AssemblyReference.cache
+E:\save\hoc tap\C#\Csharp\BTRecord\obj\Debug\net6.0\BTRecord.GeneratedMSBuildEditorConfig.editorconfig
+E:\save\hoc tap\C#\Csharp\BTRecord\obj\Debug\net6.0\BTRecord.AssemblyInfoInputs.cache
+E:\save\hoc tap\C#\Csharp\BTRecord\obj\Debug\net6.0\BTRecord.AssemblyInfo.cs
+E:\save\hoc tap\C#\Csharp\BTRecord\obj\Debug\net6.0\BTRecord.csproj.CoreCompileInputs.cache
+E:\save\hoc tap\C#\Csharp\BTRecord\obj\Debug\net6.0\BTRecord.dll
+E:\save\hoc tap\C#\Csharp\BTRecord\obj\Debug\net6.0\refint\BTRecord.dll
+E:\save\hoc tap\C#\Csharp\BTRecord\obj\Debug\net6.0\BTRecord.pdb
+E:\save\hoc tap\C#\Csharp\BTRecord\obj\Debug\net6.0\BTRecord.genruntimeconfig.cache
+E:\save\hoc tap\C#\Csharp\BTRecord\obj\Debug\net6.0\ref\BTRecord.dll
