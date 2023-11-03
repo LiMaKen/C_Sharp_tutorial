@@ -14,3 +14,8 @@ C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong5\obj\Debug\Chuong5.csproj.Suggeste
 C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong5\obj\Debug\Chuong5.csproj.CoreCompileInputs.cache
 C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong5\obj\Debug\Chuong5.exe
 C:\Users\Pro\Desktop\hoc tap\C#\Csharp\Chuong5\obj\Debug\Chuong5.pdb
+E:\save\hoc tap\C#\Csharp\Chuong5\obj\Debug\Chuong5.csproj.AssemblyReference.cache
+E:\save\hoc tap\C#\Csharp\Chuong5\obj\Debug\Chuong5.csproj.SuggestedBindingRedirects.cache
+E:\save\hoc tap\C#\Csharp\Chuong5\obj\Debug\Chuong5.csproj.CoreCompileInputs.cache
+E:\save\hoc tap\C#\Csharp\Chuong5\obj\Debug\Chuong5.exe
+E:\save\hoc tap\C#\Csharp\Chuong5\obj\Debug\Chuong5.pdb
