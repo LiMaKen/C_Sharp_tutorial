@@ -1,0 +1,15 @@
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\obj\Debug\net6.0\Chuong6OOP.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\obj\Debug\net6.0\Chuong6OOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\obj\Debug\net6.0\Chuong6OOP.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\obj\Debug\net6.0\Chuong6OOP.AssemblyInfo.cs
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\obj\Debug\net6.0\Chuong6OOP.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\bin\Debug\net6.0\Chuong6OOP.exe
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\bin\Debug\net6.0\Chuong6OOP.deps.json
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\bin\Debug\net6.0\Chuong6OOP.runtimeconfig.json
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\bin\Debug\net6.0\Chuong6OOP.dll
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\bin\Debug\net6.0\Chuong6OOP.pdb
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\obj\Debug\net6.0\Chuong6OOP.dll
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\obj\Debug\net6.0\refint\Chuong6OOP.dll
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\obj\Debug\net6.0\Chuong6OOP.pdb
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\obj\Debug\net6.0\Chuong6OOP.genruntimeconfig.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Chuong6OOP\obj\Debug\net6.0\ref\Chuong6OOP.dll

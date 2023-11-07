@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chuong5", "Chuong5\Chuong5.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chuong6", "Chuong6\Chuong6.csproj", "{69515B29-BC00-49B0-894B-C7A64C5FDD7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.7BTRecord", "BTRecord\6.7BTRecord.csproj", "{0683F948-8B75-4168-9A58-0399D2B4A349}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6.7BTRecord", "BTRecord\6.7BTRecord.csproj", "{0683F948-8B75-4168-9A58-0399D2B4A349}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chuong6OOP", "Chuong6OOP\Chuong6OOP.csproj", "{F16B8771-04CF-4575-A36F-F85E59FB0CF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{0683F948-8B75-4168-9A58-0399D2B4A349}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0683F948-8B75-4168-9A58-0399D2B4A349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0683F948-8B75-4168-9A58-0399D2B4A349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16B8771-04CF-4575-A36F-F85E59FB0CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16B8771-04CF-4575-A36F-F85E59FB0CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16B8771-04CF-4575-A36F-F85E59FB0CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16B8771-04CF-4575-A36F-F85E59FB0CF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

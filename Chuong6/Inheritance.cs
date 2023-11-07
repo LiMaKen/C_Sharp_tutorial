@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Claims;
 using System.Security.Policy;
 using System.Text;
@@ -471,17 +473,225 @@ namespace Chuong6
     }*/
     #endregion
     #region Bai 2
+    
     class BankAccount
     {
-        
+        private static long amount = (long)Math.Pow(1, 13);
+
+        public long BankId { get; set; }
+        public string Owner { get; set; }
+        public long Monney { get; set; }
+        public string BankName { get; set; }
+        public DateTime Time { get; set; }
+        public long TranferOfDay { get; set; } // số tiền chuyển trong 1 ngày
+        public long TotalDailyTransfer { get; set; }
+
+        public int Pin
+        {
+            get => Pin;
+            set
+            {
+                if (value.ToString().Length != 6)
+                {
+                    Console.WriteLine("Ma pin phai la 6 chu so. Ma pin cua ban duoc doi thanh 000000");
+                    Pin = 000000;
+                }
+                else
+                {
+                    Pin = value;
+                }
+            }
+        }
+
+        public BankAccount()
+        {
+            BankId = amount++;
+        }
+
+        public BankAccount(long id, string owner, long monney, string bankName, DateTime time, int pin)
+        {
+            BankId = id > 0 ? id : amount++;
+            Owner = owner;
+            BankName = bankName;
+            Monney = monney;
+            Time = time;
+            Pin = pin;
+        }
+
+        public void CheckMonney()
+        {
+            Console.WriteLine("=====THÔNG BÁO SỐ DƯ=====");
+            Console.WriteLine($"Số tài khoản {BankId} chủ sở hữu {Owner} có số dư là: {Monney}");
+        }
+
+        public void AddMonney(long monney)
+        {
+            if (monney > 0)
+            {
+                Monney += monney;
+                TranferOfDay += monney;
+                Console.WriteLine("Nạp tiền thành công!");
+            }
+            else
+            {
+                Console.WriteLine("Nạp tiền không thành công!");
+            }
+        }
+
+        public virtual void TakeMonney(string bankName, long monney)
+        {
+            if (monney < 0 || monney > Monney - 50000 || string.IsNullOrEmpty(bankName))
+            {
+                Console.WriteLine("Rút tiền thất bại!");
+            }
+            else
+            {
+                Monney -= monney;
+                TranferOfDay += monney;
+                Console.WriteLine("Rút tiền thành công");
+            }
+        }
+
+        public virtual void SendMonney(BankAccount other, long monney)
+        {
+            if (monney < 0 || monney > Monney - 70000)
+            {
+                Console.WriteLine("Chuyển tiền thất bại!");
+            }
+            else
+            {
+                Monney -= monney;
+                other.Monney += monney;
+                TranferOfDay += monney;
+                Console.WriteLine("Chuyển tiền thành công!");
+            }
+        }
     }
+
+    class SavingAccount : BankAccount
+    {
+
+        public DateTime SendingTerm { get; set; } // kỳ hạn gửi
+        public float InterestRate { get; set; } // lãi xuất
+        public long Interest { get; set; } // tiền lãi
+        const int Max_Tranfer = 500000000;
+
+        public SavingAccount()
+        {
+
+        }
+
+        public SavingAccount(long id, string owner, long monney, string bankName, DateTime time, int pin, DateTime sendingTerm, float interestRate, long interest)
+            : base(id, owner, monney, bankName, time, pin)
+        {
+            SendingTerm = sendingTerm;
+            InterestRate = interestRate;
+            Interest = interest;
+        }
+
+        public override void TakeMonney(string bankName, long monney)
+        {
+            if (monney > 5000000)
+            {
+                Console.WriteLine("Số tiền rút vợt quá mức quy định 5tr/lần");
+            }
+            else if (monney > Monney - 61000)
+            {
+                Console.WriteLine("Số tiền rút vượt quá số dư của bạn !");
+            }
+            else
+            {
+                base.TakeMonney(bankName, monney);
+                Monney -= 11000;
+            }
+        }
+
+        public override void SendMonney(BankAccount other, long monney)
+        {
+            if (TotalDailyTransfer + monney > Max_Tranfer)
+            {
+                Console.WriteLine("Tài khoản của bạn đã vượt quá 500tr/1 ngày!");
+                Console.WriteLine($"Bạn chỉ có thể chuyển : {Max_Tranfer - TotalDailyTransfer}");
+            }
+            else
+            {
+                base.SendMonney(other, monney);
+                TotalDailyTransfer += monney;
+            }
+        }
+    }
+
+    class PayMentAccount : BankAccount
+    {
+        public long DailyPaymentLimit { get; set; } // Hạn mức thanh toán trong ngày
+        public int BankPaymentFees { get; set; } // phí thanh toán nội ngân hàng
+        public int InterbankPaymentFees { get; set; } // phí thanh toán liên ngân hàng
+
+        public PayMentAccount()
+        {
+
+        }
+
+        public PayMentAccount(long id, string owner, long monney, string bankName, DateTime time, int pin, long dailyPaymentLimit, int bankPaymentFees, int interbankPaymentFees)
+            : base(id, owner, monney, bankName, time, pin)
+        {
+            DailyPaymentLimit = dailyPaymentLimit;
+            BankPaymentFees = bankPaymentFees;
+            InterbankPaymentFees = interbankPaymentFees;
+        }
+
+        public override void TakeMonney(string bankName, long monney)
+        {
+            var fee = (long)(1.0 / 100 * monney); // phí 1%
+            var inbank = InterbankPaymentFees;
+            if (monney > 5000000)
+            {
+                Console.WriteLine("Số tiền rút vợt quá mức quy định 5tr/lần");
+                return;
+            }
+            if (bankName.CompareTo(BankName) == 0)
+            {
+                inbank = BankPaymentFees;
+            }
+            if (monney > Monney - 50000 - fee - inbank)
+            {
+                Console.WriteLine("số tiền vượt quá số dư !");
+                return;
+            }
+            else
+            {
+                base.TakeMonney(bankName, monney);
+                Monney -= inbank;
+                Monney -= fee;
+            }
+        }
+
+        public override void SendMonney(BankAccount other, long monney)
+        {
+            if (TotalDailyTransfer + monney > DailyPaymentLimit)
+            {
+                Console.WriteLine("Bạn đã thanh toán vượt quá hạn mức trong ngày!");
+                Console.WriteLine($"Bạn chỉ có thể chuyển : {DailyPaymentLimit - TotalDailyTransfer}");
+            }
+            else
+            {
+                base.SendMonney(other, Monney);
+                TotalDailyTransfer += monney;
+            }
+        }
+    }
+
     class BankUtil
     {
 
     }
+
     class Run
     {
+        static void Main()
+        {
 
+        }
     }
     #endregion
 }
