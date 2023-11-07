@@ -10,6 +10,8 @@ using System.Xml.Linq;
 
 namespace Chuong6
 {
+    #region Bai 1
+    /*
     class Staff
     {
         private static int _amount = 1000;
@@ -19,7 +21,7 @@ namespace Chuong6
         public int Phone { get; set; }
         public long Salary { get; set; }
         public int WorkingDay { get; set; }
-        public long RealSalary { get; set; } = 0;
+        public long RealSalary { get; set; } 
 
         public Staff()
         {
@@ -38,7 +40,7 @@ namespace Chuong6
         public string CheckIn(string timne)
         {
             return $"Nhan vien {FullName} checkin luc: {timne}";
-            
+
         }
 
         public string CheckOut(string timne)
@@ -55,8 +57,8 @@ namespace Chuong6
         {
             var salary = Salary * WorkingDay / 22;
             var bonus = WorkingDay >= 22 ? Salary * 0.2 : 0;
-            var salaryReal = (long)(salary + bonus);
-            return salaryReal;
+            RealSalary = (long)(salary + bonus);
+            return RealSalary;
         }
     }
     class Manager : Staff
@@ -72,8 +74,8 @@ namespace Chuong6
         public override long SumSalary(long profit = 0)
         {
             var salary = base.SumSalary();
-            var salaryReal = (long)(salary + Bonus * salary);
-            return salaryReal;
+            RealSalary = (long)(salary + Bonus * salary);
+            return RealSalary;
         }
     }
     class Director : Staff
@@ -92,8 +94,8 @@ namespace Chuong6
         public override long SumSalary(long profit = 0)
         {
             var salary = base.SumSalary();
-            var salaryReal = (long)(salary + (salary * 0.15 + Bonus * profit));
-            return salaryReal;
+            RealSalary = (long)(salary + (salary * 0.15 + Bonus * profit));
+            return RealSalary;
         }
     }
     class StaffUtil
@@ -133,11 +135,11 @@ namespace Chuong6
         private static Staff CreateDirector()
         {
             var staff = CreateStaff();
-            Console.WriteLine("Nhap chuc vu cua ban: ");
+            Console.Write("Nhap chuc vu cua ban: ");
             string role = Console.ReadLine();
-            Console.WriteLine("Nhap he so thuong : ");
+            Console.Write("Nhap he so thuong : ");
             double bonus = double.Parse(Console.ReadLine());
-            Console.WriteLine("Nhap thoi gian vao cty: ");
+            Console.Write("Nhap thoi gian vao cty: ");
             string time = Console.ReadLine();
             return new Director(staff.ID, staff.FullName, staff.Phone, staff.Salary, staff.WorkingDay, role,time, bonus);
         }
@@ -176,12 +178,177 @@ namespace Chuong6
 
         internal static void RealWage(Staff[] staffs)
         {
+            Console.Write("Nhap vao doanh thu: ");
+            long profit = long.Parse(Console.ReadLine());
             foreach (var item in staffs)
             {
                 if (item != null)
                 {
-                    item.RealSalary = item.SumSalary(100000000);
+                    item.SumSalary(profit);
                 }
+            }
+        }
+
+        internal static void SortStaffByRealSalary(Staff[] staffs, int size)
+        {
+            int Compare(Staff s1 , Staff s2)
+            {
+                if (s1 == null || s2 == null)
+                {
+                    return 0;
+                }
+                if (s1.RealSalary - s2.RealSalary != 0)
+                {
+                    if (s2.RealSalary - s1.RealSalary > 0)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                }
+                return 0;
+            }
+            for (int i = 0; i < staffs.Length; i++)
+            {
+                if (staffs != null)
+                {
+                    for (int j = size - 1; j > i; j--)
+                    {
+                        if (Compare(staffs[j-1], staffs[j]) > 0)
+                        {
+                            Swap(ref staffs[j - 1], ref staffs[j]);
+                        }
+                    }
+                }
+            }
+        }
+
+        private static void Swap(ref Staff staff1, ref Staff staff2)
+        {
+            var tmp = staff1;
+            staff1 = staff2;
+            staff2 = tmp;
+        }
+
+        internal static void SortStaffByWorkingDay(Staff[] staffs, int size)
+        {
+            int Compare(Staff s1, Staff s2)
+            {
+                if (s1 == null || s2 == null)
+                {
+                    return 0;
+                }
+                if (s1.WorkingDay - s2.WorkingDay != 0)
+                {
+                    if (s2.WorkingDay - s1.WorkingDay > 0)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                }
+                return 0;
+            }
+            for (int i = 0; i < staffs.Length; i++)
+            {
+                if (staffs != null)
+                {
+                    for (int j = size - 1; j > i; j--)
+                    {
+                        if (Compare(staffs[j - 1], staffs[j]) > 0)
+                        {
+                            Swap(ref staffs[j - 1], ref staffs[j]);
+                        }
+                    }
+                }
+            }
+        }
+
+        internal static void UpdateSalary(Staff[] staffs, int index)
+        {
+            Console.WriteLine("Nhap ma nhan vien can tang luong: ");
+            string id = Console.ReadLine();
+            var staff = CheckId(staffs, id);
+            if (staff != null)
+            {
+                Console.WriteLine("Nhap so luong can cap nhat: ");
+                long salary = long.Parse(Console.ReadLine());
+                staff.Salary = salary;
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay ma nhan vien !");
+            }
+        }
+
+        private static Staff CheckId(Staff[] staffs, string id)
+        {
+            foreach (var item in staffs)
+            {
+                if (item != null && item.ID == id)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        internal static void SeachStaff(Staff[] staffs, int index)
+        {
+            Console.WriteLine("Nhap ma nhan vien: ");
+            string id = Console.ReadLine() ;    
+            var seachStaff = new Staff[index];
+            int size = 0;
+            foreach (var item in staffs)
+            {
+                if (item != null && item.ID == id)
+                {
+                    seachStaff[size++] = item;
+                }
+            }
+            if (size > 0)
+            {
+                ShowStaff(seachStaff);
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay nhan vien !");
+            }
+        }
+
+        internal static void DeleteStaff(Staff[] staffs, ref int index)
+        {
+            Console.WriteLine("Nhap ma nhan vien : ");
+            string id = Console.ReadLine();
+            var staff = CheckId(staffs, id);
+            bool check()
+            {
+                for (int i = 0; i < staffs.Length; i++)
+                {
+                    if (staffs[i] != null && staffs[i] == staff)
+                    {
+                        staffs[i] = null;
+                        for (int j = i; j < staffs.Length; j++)
+                        {
+                            staffs[j] = staffs[j + 1];
+                        }
+                        return true;
+                    }
+                }
+                return false;
+            }
+            if (check())
+            {
+                Console.WriteLine("Da xoa nhan vien !");
+                index--;
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay nhan vien !");
             }
         }
     }
@@ -234,22 +401,62 @@ namespace Chuong6
                         if (index > 0)
                         {
                             StaffUtil.RealWage(staffs);
+                            Console.WriteLine("Da tinh luong toan bo nhan vien !");
                         }
                         else
                         {
                             Console.WriteLine("Trong");
                         }
                         break;
-                        break;
                     case 4:
+                        if (index > 0)
+                        {
+                            StaffUtil.SortStaffByRealSalary(staffs, index);
+                        }
+                        else
+                        {
+                            Console.WriteLine("==> Danh sách nhân viên rỗng <==");
+                        }
                         break;
                     case 5:
+                        if (index > 0)
+                        {
+                            StaffUtil.SortStaffByWorkingDay(staffs, index);
+                        }
+                        else
+                        {
+                            Console.WriteLine("==> Danh sách nhân viên rỗng <==");
+                        }
                         break;
                     case 6:
+                        if (index > 0)
+                        {
+                            StaffUtil.SeachStaff(staffs, index);
+                        }
+                        else
+                        {
+                            Console.WriteLine("==> Danh sách nhân viên rỗng <==");
+                        }
                         break;
                     case 7:
+                        if (index > 0)
+                        {
+                            StaffUtil.UpdateSalary(staffs, index);
+                        }
+                        else
+                        {
+                            Console.WriteLine("==> Danh sách nhân viên rỗng <==");
+                        }
                         break;
                     case 8:
+                        if (index > 0)
+                        {
+                            StaffUtil.DeleteStaff(staffs,ref index);
+                        }
+                        else
+                        {
+                            Console.WriteLine("==> Danh sách nhân viên rỗng <==");
+                        }
                         break;
                     case 9:
                         Console.WriteLine("Tam biet !");
@@ -261,5 +468,22 @@ namespace Chuong6
             } while (x != 9);
 
         }
+    }*/
+    #endregion
+    #region Bai 2
+    class BankAccount
+    {
+
     }
+    class BankUtil
+    {
+
+    }
+    class Run
+    {
+
+    }
+    #endregion
 }
+
+
