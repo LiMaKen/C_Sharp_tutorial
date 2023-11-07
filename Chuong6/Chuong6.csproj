@@ -56,6 +56,7 @@
     <Compile Include="6.5BTPartial\Student.cs" />
     <Compile Include="6.5BTPartial\Student1.cs" />
     <Compile Include="6.3BTStatic.cs" />
+    <Compile Include="Inheritance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
