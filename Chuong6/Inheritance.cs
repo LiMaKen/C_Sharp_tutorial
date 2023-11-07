@@ -19,6 +19,7 @@ namespace Chuong6
         public int Phone { get; set; }
         public long Salary { get; set; }
         public int WorkingDay { get; set; }
+        public long RealSalary { get; set; } = 0;
 
         public Staff()
         {
@@ -99,6 +100,9 @@ namespace Chuong6
     {
         internal static Staff InforCreate()
         {
+            Console.WriteLine("1) Tao nhan vien");
+            Console.WriteLine("2) tao quan ly");
+            Console.WriteLine("3) tao giam doc");
             Console.Write("Nhap lua chon cua ban: ");
             int x = int.Parse(Console.ReadLine());
             if (x == 1)
@@ -118,17 +122,67 @@ namespace Chuong6
 
         private static Staff CreateManager()
         {
-            throw new NotImplementedException();
+            var staff = CreateStaff();
+            Console.WriteLine("Nhap chuc vu cua ban: ");
+            string role = Console.ReadLine();
+            Console.WriteLine("Nhap he so thuong : ");
+            double bonus = double.Parse(Console.ReadLine());
+            return new Manager(staff.ID, staff.FullName, staff.Phone, staff.Salary, staff.WorkingDay, role, bonus);
         }
 
         private static Staff CreateDirector()
         {
-            throw new NotImplementedException();
+            var staff = CreateStaff();
+            Console.WriteLine("Nhap chuc vu cua ban: ");
+            string role = Console.ReadLine();
+            Console.WriteLine("Nhap he so thuong : ");
+            double bonus = double.Parse(Console.ReadLine());
+            Console.WriteLine("Nhap thoi gian vao cty: ");
+            string time = Console.ReadLine();
+            return new Director(staff.ID, staff.FullName, staff.Phone, staff.Salary, staff.WorkingDay, role,time, bonus);
         }
 
         private static Staff CreateStaff()
         {
-            throw new NotImplementedException();
+            Staff staff = new Staff();
+            Console.Write("Nhap ten cua ban: ");
+            staff.FullName = Console.ReadLine();
+            Console.Write("Nhap so dien thoai cua ban: ");
+            staff.Phone = int.Parse(Console.ReadLine());
+            Console.Write("Nhap muc luong: ");
+            staff.Salary = long.Parse(Console.ReadLine());
+            Console.Write("Nhap so ngay lam viec: ");
+            staff.WorkingDay= int.Parse(Console.ReadLine());
+            return staff;
+        }
+
+        internal static void ShowStaff(Staff[] staffs)
+        {
+            var titleId = "MNV";
+            var titleFullName = "Ho va Ten";
+            var titlePhone = "SDT";
+            var titleSalary = "Luong co ban";
+            var titleWorkingDay = "Ngay lam viec";
+            var titleSumSalary = "Tong luong";
+            Console.WriteLine($"{titleId,-15}{titleFullName,-15}{titlePhone,-15}{titleSalary,-15}{titleWorkingDay,-15}{titleSumSalary,-15}");
+            foreach (var item in staffs)
+            {
+                if (item != null)
+                {
+                    Console.WriteLine($"{item.ID,-15}{item.FullName,-15}{item.Phone,-15}{item.Salary,-15}{item.WorkingDay,-15}{item.RealSalary,-15}");
+                }
+            }
+        }
+
+        internal static void RealWage(Staff[] staffs)
+        {
+            foreach (var item in staffs)
+            {
+                if (item != null)
+                {
+                    item.RealSalary = item.SumSalary(100000000);
+                }
+            }
         }
     }
     class Run
@@ -159,6 +213,7 @@ namespace Chuong6
                         if (staff != null)
                         {
                             staffs[index++] = staff;
+                            Console.WriteLine("Tao thanh cong !");
                         }
                         else
                         {
@@ -166,8 +221,25 @@ namespace Chuong6
                         }
                         break;
                     case 2:
+                        if (index > 0)
+                        {
+                            StaffUtil.ShowStaff(staffs);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Trong");
+                        }
                         break;
                     case 3:
+                        if (index > 0)
+                        {
+                            StaffUtil.RealWage(staffs);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Trong");
+                        }
+                        break;
                         break;
                     case 4:
                         break;
