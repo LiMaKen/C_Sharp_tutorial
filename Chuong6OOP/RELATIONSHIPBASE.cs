@@ -10,7 +10,7 @@ class Student
 {
     private static int amount = 1000;
     public string Id { get; set; }
-    public FullName FullName { get; set; }
+    public FullName FullName { get; set; } 
     public string Major { get; set; }
     public int CheckRegister { get; set; }
 
@@ -65,8 +65,8 @@ class FullName
     public void SetFullName(string fullName)
     {
         var data = fullName.Split(' ');
-        LastName = data[0];
-        FirstName = data[data.Length - 1];
+        FirstName = data[0];
+        LastName = data[data.Length - 1];
         var mid = "";
         for (int i = 1; i < data.Length - 1; i++)
         {
@@ -77,7 +77,7 @@ class FullName
 
     public override string ToString()
     {
-        return $"{LastName} {MidName} {FirstName}";
+        return $"{FirstName} {MidName} {LastName}";
     }
 }
 class Subject
@@ -119,8 +119,8 @@ class Register
 {
     private static int amount = 10000;
     public int RegisterId { get; set; } // mã đăng ký
-    public Student Student { get; set; } // tên sinh viên
-    public Subject Subject { get; set; } // tên môn học
+    public Student Student { get; set; } //  sinh viên
+    public Subject Subject { get; set; } //  môn học
     public DateTime RegisterTime { get; set; } // thời gian đăng ký
     public Register()
     {
@@ -137,7 +137,27 @@ class Register
         RegisterTime = registerTime;
     }
 
-    
+    public override bool Equals(object obj)
+    { 
+        
+        if (obj is Subject)
+        {
+            var other = (Subject)obj;
+            if (other.SubjectId == Subject.SubjectId)
+            {
+                return true;
+            }
+        }
+        if (obj is Student)
+        {
+            var other2 = (Student)obj;
+            if (other2.Id == Student.Id)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public override int GetHashCode()
     {
         return base.GetHashCode();
