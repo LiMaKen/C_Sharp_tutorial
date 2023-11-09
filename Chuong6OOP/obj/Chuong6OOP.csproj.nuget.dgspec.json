@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\save\\hoc tap\\C#\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj": {}
   },
   "projects": {
-    "E:\\save\\hoc tap\\C#\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj": {
+    "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\save\\hoc tap\\C#\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj",
         "projectName": "Chuong6OOP",
-        "projectPath": "E:\\save\\hoc tap\\C#\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj",
-        "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
-        "outputPath": "E:\\save\\hoc tap\\C#\\Csharp\\Chuong6OOP\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Chuong6OOP\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

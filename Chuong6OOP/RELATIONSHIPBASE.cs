@@ -12,6 +12,7 @@ class Student
     public string Id { get; set; }
     public FullName FullName { get; set; }
     public string Major { get; set; }
+    public int CheckRegister { get; set; }
 
     public Student()
     {
@@ -25,6 +26,20 @@ class Student
     {
         FullName = new FullName(name);
         Major = major;
+        CheckRegister = 0;
+    }
+    public override bool Equals(object obj)
+    {
+        if (obj.GetType() != this.GetType())
+        {
+            return false;
+        }
+        var other = (Student)obj;
+        return other.Id == Id;
+    }
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }
 class FullName
@@ -86,6 +101,19 @@ class Subject
         NumberOfCredits = numberOfCredits;
         NumberOfLessons = numberOfLessons;
     }
+    public override bool Equals(object obj)
+    {
+        if (obj.GetType() != this.GetType())
+        {
+            return false;
+        }
+        var other = (Subject)obj;
+        return other.SubjectId == SubjectId;
+    }
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
 }
 class Register
 {
@@ -107,6 +135,12 @@ class Register
         Student = student;
         Subject = subject;
         RegisterTime = registerTime;
+    }
+
+    
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }
 #endregion

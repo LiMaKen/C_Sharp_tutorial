@@ -546,7 +546,7 @@ class Uitl
         return null;
     }
 
-    internal static Register CreateRegister(Student[] students, Subject[] subjects)
+    internal static Register CreateRegister(Register[] registers, Student[] students, Subject[] subjects)
     {
         Console.Write("Nhap vao ma sinh vien : ");
         string id = Console.ReadLine();
@@ -558,7 +558,22 @@ class Uitl
             var subject = GetSubject(subjects, idSubject);
             if (subject != null)
             {
-                return new Register(0, student, subject, DateTime.Now);
+                if (student.CheckRegister <= 8)
+                {
+                    if (!CheckSubject(registers,student,subject))
+                    {
+                        return new Register(0, student, subject, DateTime.Now);
+                        student.CheckRegister++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Mon hoc da ton tai !");
+                    }                
+                }
+                else
+                {
+                    Console.WriteLine("So mon hoc da vuot qua 8 !");
+                }
             }
             else
             {
@@ -570,6 +585,18 @@ class Uitl
             Console.WriteLine("Khong tim thay sinh vien !");
         }
         return null;
+    }
+
+    private static bool CheckSubject(Register[] registers, Student student, Subject subject)
+    {
+        foreach (var item in registers)
+        {
+            if (item != null && student.Equals(item.Student) && subject.Equals(item.Subject))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
 class Run
@@ -622,7 +649,8 @@ class Run
                     Console.WriteLine($"Them mon hoc thanh cong . Ma mon hoc la {subject.SubjectId}");
                     break;
                 case 3:
-                    var register = Uitl.CreateRegister(students,subjects);
+                    var register = Uitl.CreateRegister(registers,students,subjects);
+                    registers[indexRegister++] = register;
                     break;
                 case 4:
                     break;
