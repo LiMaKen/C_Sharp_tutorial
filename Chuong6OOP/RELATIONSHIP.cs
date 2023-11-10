@@ -3,6 +3,7 @@ using Chuong6.StudentOutIn;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.SymbolStore;
 using System.Dynamic;
 using System.Linq;
 using System.Text;
@@ -504,6 +505,7 @@ class Run
 */
 #endregion
 #region Bai 2
+/*
 class Uitl
 {
     internal static Student CreateStudent()
@@ -1267,4 +1269,732 @@ class Run
         } while (x != 19);
     }
 }
+*/
+#endregion
+#region Bai 3
+class Uitl
+{
+    internal static Student CreateStudent()
+    {
+        Console.Write("Nhap vao  ho ten cua ban: ");
+        string name = Console.ReadLine();
+        Console.Write("Nhap vao tuoi cua ban: ");
+        int age = int.Parse(Console.ReadLine());
+        Console.Write("Nhap vao dia chi cua ban: ");
+        string addRess = Console.ReadLine();
+        Console.Write("Nhap vao chuyen nganh cua ban: ");
+        string major = Console.ReadLine();
+        return new Student(null, name, age, addRess, major);
+    }
+
+    internal static Subject CreateSubject()
+    {
+        Subject subject = new Subject();
+        Console.Write("Nhap vao ten mon hoc : ");
+        subject.SubjectName = Console.ReadLine();
+        Console.Write("Nhap vao so tin chi: ");
+        subject.NumberOfCredit = int.Parse(Console.ReadLine());
+        return subject;
+    }
+
+    internal static Course CreateCourses(Subject[] subjects)
+    {
+        Console.Write("Nhap vao ma mon hoc can mo lop: ");
+        int subjectId = int.Parse(Console.ReadLine());
+        var subject = GetSubject(subjects, subjectId);
+        if (subject != null)
+        {
+            Console.Write("Nhap vao so luong sinh vien: ");
+            int numberOfStudent = int.Parse(Console.ReadLine());
+            Console.Write("Nhap vao ten giao vien: ");
+            string teacher = Console.ReadLine();
+            return new Course(subject, teacher, numberOfStudent);
+        }
+        else
+        {
+            Console.WriteLine("Mon hoc nay khong ton tai !");
+        }
+        return null;
+    }
+
+    private static Subject GetSubject(Subject[] subjects, int subjectId)
+    {
+        foreach (var item in subjects)
+        {
+            if (item != null && subjectId.CompareTo(item.SubjectId) == 0)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    internal static void CreateTranScript(Course[] courses, Student[] students)
+    {
+        Console.WriteLine("Nhap vao ma lop hoc: ");
+        int courseId = int.Parse(Console.ReadLine());
+        var course = GetCourse(courses, courseId);
+        if (course != null)
+        {
+            Console.WriteLine("Nhap vao ma sinh vien : ");
+            string studentId = Console.ReadLine();
+            var student = GetStudent(students, studentId);
+            if (student != null)
+            {
+                if (course.NumberOfTranscript < course.NumberOfStudent)
+                {
+                    if (!CheckStudentInCourse(course, student))
+                    {
+                        Console.WriteLine("Nhap diem he 1: ");
+                        float test1 = float.Parse(Console.ReadLine());
+                        Console.WriteLine("Nhap diem he 2 : ");
+                        float test2 = float.Parse(Console.ReadLine());
+                        Console.WriteLine("Nhap diem he 3: ");
+                        float test3 = float.Parse(Console.ReadLine());
+                        var tranScript = new TranScript(student, test1, test2, test3);
+                        tranScript.SumTest();
+                        course.TranScript[course.NumberOfTranscript++] = tranScript;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sinh vien nay da co bang diem mon hoc nay !");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Bang diem cua sinh vien da du !");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay sinh vien !");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Khong tim thay khoa hoc !");
+        }
+    }
+
+    private static bool CheckStudentInCourse(Course course, Student student)
+    {
+        var tranScript = course.TranScript;
+        foreach (var item in tranScript)
+        {
+            if (item != null && item.Student.Equals(student))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static Student GetStudent(Student[] students, string studentId)
+    {
+        foreach (var item in students)
+        {
+            if (item != null && item.Id.CompareTo(studentId) == 0)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    private static Course GetCourse(Course[] courses, int courseId)
+    {
+        foreach (var item in courses)
+        {
+            if (item != null && item.CourseId == courseId)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    internal static void ShowStudent(Student[] students)
+    {
+        var titleId = "MSV";
+        var titleFullName = "Ho Va Ten";
+        var titleAge = "Tuoi";
+        var titleMajor = "Chuyen Nganh";
+        var titleAddRess = "Dia Chi";
+        Console.WriteLine($"{titleId,-15}{titleFullName,-15}{titleAge,-15}{titleMajor,-15}{titleAddRess,-15}");
+        foreach (var item in students)
+        {
+            if (item != null)
+            {
+                Console.WriteLine($"{item.Id,-15}{item.FullName,-15}{item.Age,-15}{item.Major,-15}{item.AddRess,-15}");
+            }
+        }
+    }
+
+    internal static void ShowSubject(Subject[] subjects)
+    {
+        var titleId = "Ma Dang Ky";
+        var titleName = "Ten HP";
+        var titleNumberC = "So Tin Chi";
+        Console.WriteLine($"{titleId,-15}{titleName,-15}{titleNumberC,-15}");
+        foreach (var item in subjects)
+        {
+            if (item != null)
+            {
+                Console.WriteLine($"{item.SubjectId,-15}{item.SubjectName,-15}{item.NumberOfCredit,-15}");
+            }
+        }
+    }
+
+    internal static void ShowCourses(Course[] courses)
+    {
+        var titleId = "Ma Bang Diem";
+        var titleIdStudent = "MSV";
+        var titleStudentName = "Ho Ten";
+        var titleHe1 = "Diem He 1";
+        var titleHe2 = "Diem He 2";
+        var titleHe3 = "Diem He 3";
+        var titleTb = "Diem TB";
+        for (int i = 0; i < courses.Length; i++)
+        {
+            if (courses[i] != null)
+            {
+                Console.WriteLine($"ID lop {courses[i].CourseId} Ten mon hoc: {courses[i].Subject.SubjectName}");
+                Console.WriteLine($"{titleId,-15}{titleIdStudent,-15}{titleStudentName,-15}{titleHe1,-15}{titleHe2,-15}{titleHe3,-15}{titleTb,-15}");
+                foreach (var item in courses[i].TranScript)
+                {
+                    if (item != null)
+                    {
+                        Console.WriteLine($"{item.TranScriptId,-15}{item.Student.Id,-15}{item.Student.FullName,-15}{item.Test1,-15}{item.Test2,-15}{item.Test3,-15}{item.TB,-15}");
+                    }
+                }
+            }
+        }
+    }
+
+    internal static void SortStudentByName(Student[] students)
+    {
+        int Compare(Student s1, Student s2)
+        {
+            if (s1 == null || s2 == null)
+            {
+                return 0;
+            }
+            return s1.FullName.LastName.CompareTo(s2.FullName.LastName);
+        }
+        for (int i = 0; i < students.Length; i++)
+        {
+            for (int j = i + 1; j < students.Length; j++)
+            {
+                if (Compare(students[i], students[j]) > 0)
+                {
+                    var tmp = students[i];
+                    students[i] = students[j];
+                    students[j] = tmp;
+                }
+            }
+        }
+    }
+
+    internal static void SeachStudent(Student[] students)
+    {
+        Console.WriteLine("Nhap vao ma sinh vien can tim: ");
+        string id = Console.ReadLine();
+        var student = GetStudent(students, id);
+        if (student != null)
+        {
+            Console.WriteLine("Sinh vien can tim la : ");
+            Console.WriteLine($"{student.Id} {student.FullName} {student.Age} {student.Major}");
+        }
+        else
+        {
+            Console.WriteLine("Khong tim thay ma sinh vien tuong ung!");
+        }
+    }
+
+    internal static void DeleteStudent(Student[] students)
+    {
+        Console.WriteLine("Nhap vao ma sinh vien can xoa: ");
+        string id = Console.ReadLine();
+        bool Delete()
+        {
+            for (int i = 0; i < students.Length; i++)
+            {
+                if (students[i] != null && students[i].Id.CompareTo(id) == 0)
+                {
+                    students[i] = null;
+                    return true;
+                }
+            }
+            return false;
+        }
+        if (Delete())
+        {
+            Console.WriteLine("Xoa thanh cong !");
+        }
+        else
+        {
+            Console.WriteLine("Khong tim thay sinh vien !");
+        }
+    }
+
+    internal static void ShortTranScrip(Course[] courses)
+    {
+        Console.WriteLine("Nhap vao ma lop hoc can sap xep: ");
+        int idCourse = int.Parse(Console.ReadLine());
+        var course = GetCourse(courses, idCourse);
+        if (course != null)
+        {
+            SortTranScript(course.TranScript);
+            Console.WriteLine("Hoc phan da duoc sap xep !");
+        }
+        else
+        {
+            Console.WriteLine("Khong tim thay lop hoc !");
+        }
+    }
+
+    private static void SortTranScript(TranScript[] tranScript)
+    {
+        int Compare(TranScript s1, TranScript s2)
+        {
+            if ((s1 == null) || (s2 == null)) return 0;
+            if (s1.TB - s2.TB != 0)
+            {
+                if (s2.TB - s1.TB > 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            return 0;
+        }
+        for (int i = 0; i < tranScript.Length; i++)
+        {
+            if (tranScript[i] != null)
+            {
+                for (int j = i + 1; j < tranScript.Length; j++)
+                {
+                    if (Compare(tranScript[i], tranScript[j]) > 0)
+                    {
+                        var tmp = tranScript[i];
+                        tranScript[i] = tranScript[j];
+                        tranScript[j] = tmp;
+                    }
+                }
+            }
+        }
+    }
+
+    internal static void StatStudentHight(Course[] courses)
+    {
+        int Check(float tb, Information[] result)
+        {
+            for (int i = 0; i < result.Length; i++)
+            {
+                if (result[i] != null && result[i].NumberGood == tb)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        Information[] result = new Information[courses.Length];
+        int size = 0;
+        for (int i = 0; i < courses.Length; i++)
+        {
+            if (courses[i] != null)
+            {
+                var tranScript = courses[i].TranScript;
+                foreach (var item in tranScript)
+                {
+                    if (item != null && item.TB >= 8)
+                    {
+                        var resultCheck = Check(item.TB, result);
+                        if (resultCheck != -1)
+                        {
+                            result[resultCheck].StudentGood++;
+                            continue;
+                        }
+                        else
+                        {
+                            result[size] = new Information();
+                            result[size].NumberGood = item.TB;
+                            result[size].StudentGood = 1;
+                            size++;
+                        }
+                    }
+                }
+            }
+        }
+        var finalResult = new Information[size];
+        Array.Copy(result, finalResult, size);
+        Array.Sort(finalResult, (p1, p2) => Convert.ToInt32(p2.NumberGood - p1.NumberGood));
+        foreach (var item in finalResult)
+        {
+            Console.WriteLine($"Co {item.StudentGood} sinh vien dat diem {item.NumberGood}");
+        }
+    }
+
+    internal static void StatStudentBad(Course[] courses)
+    {
+        int Check(float tb, Information[] result)
+        {
+            for (int i = 0; i < result.Length; i++)
+            {
+                if (result[i] != null && result[i].NumberBad == tb)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        Information[] result = new Information[courses.Length];
+        int size = 0;
+        for (int i = 0; i < courses.Length; i++)
+        {
+            if (courses[i] != null)
+            {
+                var tranScript = courses[i].TranScript;
+                foreach (var item in tranScript)
+                {
+                    if (item != null && item.TB < 4)
+                    {
+                        var resultCheck = Check(item.TB, result);
+                        if (resultCheck != -1)
+                        {
+                            result[resultCheck].StudentBad++;
+                            continue;
+                        }
+                        else
+                        {
+                            result[size] = new Information();
+                            result[size].NumberBad = item.TB;
+                            result[size].StudentBad = 1;
+                            size++;
+                        }
+                    }
+                }
+            }
+        }
+        var finalResult = new Information[size];
+        Array.Copy(result, finalResult, size);
+        Array.Sort(finalResult, (p1, p2) => Convert.ToInt32(p2.NumberBad - p1.NumberBad));
+        foreach (var item in finalResult)
+        {
+            Console.WriteLine($"Co {item.StudentBad} sinh vien truot mon voi so diem:  {item.NumberBad}");
+        }
+    }
+
+    internal static void EditTest(Course[] courses, Student[] students)
+    {
+        Console.WriteLine("Nhap lop hoc phan: ");
+        int idCourse = int.Parse(Console.ReadLine());
+        var course = GetCourse(courses, idCourse);
+        if (course != null)
+        {
+            Console.WriteLine("Nhap vao ma sinh vien can sua diem: ");
+            string id = Console.ReadLine();
+            var student = GetStudent(students, id);
+            if (student != null)
+            {
+                for (int i = 0; i < course.TranScript.Length; i++)
+                {
+                    if (course.TranScript[i] != null && student.Equals(course.TranScript[i].Student))
+                    {
+                        Console.WriteLine("Nhap vao so diem he 1: ");
+                        float he1 = float.Parse(Console.ReadLine());
+                        Console.WriteLine("Nhap vao so diem he 2: ");
+                        float he2 = float.Parse(Console.ReadLine());
+                        Console.WriteLine("Nhap vao so diem he 3: ");
+                        float he3 = float.Parse(Console.ReadLine());
+                        var newTranScript = new TranScript(student, he1, he2, he3);
+                        newTranScript.SumTest();
+                        course.TranScript[i] = newTranScript;
+                        Console.WriteLine("Sua thanh cong !");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay sinh vien!");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Khong tim thay hoc phan !");
+        }
+    }
+
+    internal static void SeachStudentByIdCourse(Course[] courses, Student[] students)
+    {
+        Console.WriteLine("Nhap vao ma lop: ");
+        int idCourse = int.Parse(Console.ReadLine());
+        var course = GetCourse(courses, idCourse);
+        if (course != null)
+        {
+            Console.WriteLine("Nhap diem >= can tim : ");
+            float x = float.Parse(Console.ReadLine());
+            var seachStudent = new Student[students.Length];
+            int size = 0;
+            foreach (var item in course.TranScript)
+            {
+                if (item != null && item.TB >= x)
+                {
+                    seachStudent[size++] = item.Student;
+                }
+            }
+            if (size > 0)
+            {
+                ShowStudent(seachStudent);
+            }
+            else
+            {
+                Console.WriteLine("Khong co sinh vien nao dat diem nhu vay !");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Khong tim thay ma hoc phan !");
+        }
+    }
+
+    internal static void DeleteTranScript(Course[] courses, Student[] students)
+    {
+        Console.WriteLine("Nhap ma lop : ");
+        int idCourse = int.Parse(Console.ReadLine());
+        var course = GetCourse(courses,idCourse);
+        if (course != null)
+        {
+            Console.WriteLine("Nhap vao ma sinh vien can xoa bang diem: ");
+            string idStudent = Console.ReadLine();
+            var student = GetStudent(students,idStudent);
+            bool Delete()
+            {
+                for (int i = 0; i < course.TranScript.Length; i++)
+                {
+                    if (course.TranScript[i] != null && course.TranScript[i].Student.Equals(student))
+                    {
+                        course.TranScript[i] = null;
+                        return true;
+                    }
+                }
+                return false;
+            }
+            if (Delete())
+            {
+                Console.WriteLine("Xoa thanh cong !");
+            }
+            else
+            {
+                Console.WriteLine("Xoa that bai!");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Khong tim thay ma lop hoc !");
+        }
+    }
+}
+class Run
+{
+    /*static void Main()
+    {
+        Console.OutputEncoding = Encoding.UTF8;
+        const int Max = 100;
+        Student[] students = new Student[Max];
+        Subject[] subjects = new Subject[Max];
+        Course[] courses = new Course[Max];
+        int studentIndex = 0;
+        int subjectIndex = 0;
+        int coursesIndex = 0;
+        int x;
+        do
+        {
+            Console.WriteLine("1) Thêm mới một sinh viên vào danh sách.\r\n" +
+          "2) Thêm mới môn học vào danh sách.\r\n" +
+          "3) Thêm mới lớp học phần vào danh sách các lớp học phần.\r\n" +
+          "4) Nhập bảng điểm cho các sinh viên trong một lớp học phần bằng cách nhập mã lớp, mã\r\nsinh viên và các đầu điểm hệ số 1, 2. 3. Bảng điểm của mỗi sinh viên với 1 môn học chỉ\r\nxuất hiện 1 lần trong danh sách bảng điểm.\r\n" +
+          "5) Hiển thị danh sách sinh viên ra màn hình ở dạng bảng gồm các hàng, cột ngay ngắn. Thông\r\ntin mỗi sinh viên hiển thị trên 1 dòng.\r\n" +
+          "6) Hiển thị danh sách môn học ra màn hình.\r\n" +
+          "7) Hiển thị danh sách bảng điểm của từng lớp học phần\r\n" +
+          "8) Sắp xếp danh sách sinh viên theo tên tăng dần.\r\n" +
+          "9) Tìm sinh viên theo mã sinh viên cho trước.\r\n" +
+          "10) Xóa sinh viên theo mã cho trước khỏi danh sách.\r\n" +
+          "11) Sắp xếp danh sách bảng điểm của một lớp học phần theo thứ tự điểm TB môn giảm dần.\r\n" +
+          "12) Liệt kê số lượng sinh viên đạt điểm TB loại giỏi(>= 8.0 ở hệ 10) trong các lớp học phần\r\ntheo thứ tự giảm dần.\r\n" +
+          "13) Liệt kê số lượng sinh viên trượt môn trong từng lớp học phần(điểm TB < 4) theo thứ tự\r\nsố lượng sinh viên giảm dần.\r\n" +
+          "14) Sửa điểm cho sinh viên theo mã lớp học phần và mã sinh viên.\r\n" +
+          "15) Tìm các sinh viên có điểm >= x trong lớp học phần khi biết mã lớp.\r\n" +
+          "16) Xóa bảng điểm của sinh viên có mã x trong lớp học phần mã p nào đó.\r\n" +
+          "17) Kết thúc chương trình.");
+            x = int.Parse(Console.ReadLine());
+            switch (x)
+            {
+                case 1:
+                    var student = Uitl.CreateStudent();
+                    students[studentIndex++] = student;
+                    Console.WriteLine($"Tao sinh vien thanh cong. Ma sinh vien cua ban la {student.Id}");
+                    break;
+                case 2:
+                    var subject = Uitl.CreateSubject();
+                    subjects[subjectIndex++] = subject;
+                    Console.WriteLine($"Tao mon hoc thanh cong. Ma mon hoc la : {subject.SubjectId}");
+                    break;
+                case 3:
+                    var course = Uitl.CreateCourses(subjects);
+                    if (course != null)
+                    {
+                        courses[coursesIndex++] = course;
+                        Console.WriteLine($"Tao lop hoc thanh cong. Ma lop hoc la : {course.CourseId}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Tao lop hoc that bai !");
+                    }
+                    break;
+                case 4:
+                    if (coursesIndex > 0)
+                    {
+                        Uitl.CreateTranScript(courses, students);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach khoa hoc trong !");
+                    }
+                    break;
+                case 5:
+                    if (studentIndex > 0)
+                    {
+                        Uitl.ShowStudent(students);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach sinh vien trong!");
+                    }
+                    break;
+                case 6:
+                    if (subjectIndex > 0)
+                    {
+                        Uitl.ShowSubject(subjects);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach mon hoc trong !");
+                    }
+                    break;
+                case 7:
+                    if (coursesIndex > 0)
+                    {
+                        Uitl.ShowCourses(courses);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach khoa hoc trong !");
+                    }
+                    break;
+                case 8:
+                    if (studentIndex > 0)
+                    {
+                        Uitl.SortStudentByName(students);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach sinh vien trong!");
+                    }
+                    break;
+                case 9:
+                    if (studentIndex > 0)
+                    {
+                        Uitl.SeachStudent(students);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach sinh vien trong!");
+                    }
+                    break;
+                case 10:
+                    if (studentIndex > 0)
+                    {
+                        Uitl.DeleteStudent(students);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach sinh vien trong!");
+                    }
+                    break;
+                case 11:
+                    if (coursesIndex > 0)
+                    {
+                        Uitl.ShortTranScrip(courses);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach khoa hoc trong !");
+                    }
+                    break;
+                case 12:
+                    if (coursesIndex > 0)
+                    {
+                        Uitl.StatStudentHight(courses);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach khoa hoc trong !");
+                    }
+                    break;
+                case 13:
+                    if (coursesIndex > 0)
+                    {
+                        Uitl.StatStudentBad(courses);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach khoa hoc trong !");
+                    }
+                    break;
+                case 14:
+                    if (coursesIndex > 0)
+                    {
+                        Uitl.EditTest(courses, students);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach khoa hoc trong !");
+                    }
+                    break;
+                case 15:
+                    if (coursesIndex > 0)
+                    {
+                        Uitl.SeachStudentByIdCourse(courses, students);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach khoa hoc trong !");
+                    }
+                    break;
+                case 16:
+                    if (coursesIndex > 0)
+                    {
+                        Uitl.DeleteTranScript(courses, students);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Danh sach khoa hoc trong !");
+                    }
+                    break;
+                case 17:
+                    Console.WriteLine("Tam biet!");
+                    break;
+                default:
+                    Console.WriteLine("Sai lua chon!");
+                    break;
+            }
+        } while (x != 17);
+    }
+    */
+}
+
 #endregion

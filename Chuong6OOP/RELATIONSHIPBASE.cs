@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chuong6OOP;
 #region Bai 2
+/*
 class Student
 {
     private static int amount = 1000;
@@ -162,5 +163,157 @@ class Register
     {
         return base.GetHashCode();
     }
+}
+*/
+#endregion
+#region Bai 3
+class Person
+{
+    public FullName FullName { get; set; }
+    public string AddRess { get; set; }
+    public int Age { get; set; }
+}
+class FullName
+{
+    public string FirstName { get; set; }
+    public string MidName { get; set; }
+    public string LastName { get; set; }
+    public FullName()
+    {
+        FirstName = "";
+        MidName = "";
+        LastName = "";
+    }
+    public FullName(string name)
+    {
+        SetFullName(name);
+    }
+
+    private void SetFullName(string name)
+    {
+        var data = name.Split(' ');
+        FirstName = data[0];
+        LastName = data[data.Length - 1];
+        var mid = "";
+        for (int i = 1; i < data.Length - 1; i++)
+        {
+            mid += data[i] + " ";
+        }
+        MidName = mid.TrimEnd();
+    }
+
+    public override string ToString() => $"{FirstName} {MidName} {LastName}";
+}
+
+class Student : Person
+{
+    private static int amount = 1000;
+
+    public string Id { get; set; }
+    public string Major { get; set; }
+
+    public Student()
+    {
+        Id = "ST" + amount++;
+    }
+    public Student(string id)
+    {
+        Id = string.IsNullOrEmpty(id) ? "ST" + amount++ : id;
+    }
+    public override bool Equals(object obj)
+    {
+        if (this.GetType() != obj.GetType())
+        {
+            return false;
+        }
+        var orther = (Student)obj;
+        return orther.Id.CompareTo(Id) == 0;
+    }
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+    public Student(string id, string name, int age, string addRess, string major) : this(id)
+    {
+        FullName = new FullName(name);
+        Major = major;
+        Age = age;
+        AddRess = addRess;
+    }
+}
+class Subject
+{
+    private static int amount = 1000;
+    public int SubjectId { get; set; }
+    public string SubjectName { get; set; }
+    public int NumberOfCredit { get; set; }
+    public Subject()
+    {
+        SubjectId = amount++;
+    }
+    public Subject(string subjectName, int numberOfCredit) : this()
+    {
+        SubjectName = subjectName;
+        NumberOfCredit = numberOfCredit;
+    }
+}
+class Course
+{
+    private static int autoId = 10000;
+    public int CourseId { get; set; }
+    public int NumberOfStudent { get; set; }
+    public int NumberOfTranscript { get; set; }
+    public Subject Subject { get; set; }
+    public string Teacher { get; set; }
+    public TranScript[] TranScript { get; set; }
+    public Course()
+    {
+        CourseId = autoId++;
+    }
+    public Course(Subject subject, string teacher, int numberOfStudent) : this()
+    {
+        Subject = subject;
+        Teacher = teacher;
+        NumberOfStudent = numberOfStudent;
+        TranScript = new TranScript[numberOfStudent];
+        NumberOfTranscript = 0;
+    }
+}
+class TranScript
+{
+    private static int amount = 1000;
+    public int TranScriptId { get; set; }
+    public Student Student { get; set; }
+    public float Test1 { get; set; }
+    public float Test2 { get; set; }
+    public float Test3 { get; set; }
+    public float TB { get; set; }
+
+    public TranScript()
+    {
+        TranScriptId = amount++;
+    }
+    public TranScript(Student student, float test1, float test2, float test3) : this()
+    {
+        Student = student;
+        Test1 = test1;
+        Test2 = test2;
+        Test3 = test3;
+    }
+    public float SumTest()
+    {
+        float he1 = Test1 * 0.1f;
+        float he2 = Test2 * 0.3f;
+        float he3 = Test3 * 0.6f;
+        TB = (float)(he1 + he2 + he3);
+        return TB;
+    }
+}
+class Information
+{
+    public float NumberGood { get; set; }
+    public float NumberBad { get; set; }
+    public int StudentGood { get; set; }
+    public int StudentBad { get; set; }
 }
 #endregion
