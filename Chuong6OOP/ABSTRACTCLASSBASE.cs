@@ -164,7 +164,7 @@ abstract class BankAccount
     public string BankId { get; set; }
     public string Owner { get; set; }
     public string BankName { get; set; }
-    public DateTime Time { get; set; }
+    public string Time { get; set; }
     public long Monney { get; set; }
     public float InterestRate { get; set; }
     public long Interest { get; set; } // tiền lãi
@@ -194,7 +194,7 @@ abstract class BankAccount
             BankId = accNum;
         }
     }
-    public BankAccount(string accNum, string owner, string bankName, DateTime time, long monney, float interestRate) : this(accNum)
+    public BankAccount(string accNum, string owner, string bankName, string time, long monney, float interestRate) : this(accNum)
     {
         Owner = owner;
         BankName = bankName;
@@ -203,7 +203,7 @@ abstract class BankAccount
         InterestRate = interestRate;
         Interest = 0;
     }
-   
+
 }
 class PaymentAccount : BankAccount
 {
@@ -211,13 +211,14 @@ class PaymentAccount : BankAccount
     public long TotalPayment { get; set; }
     public PaymentAccount()
     {
-        
+
     }
     public PaymentAccount(string bankAcc) : base(bankAcc)
     {
 
     }
-    public PaymentAccount(string accNum, string owner, string bankName, DateTime time, long monney,long dailyPayment) : base(accNum, owner, bankName, time, monney , 1)
+    public PaymentAccount(string accNum, string owner, string bankName, string time, long monney, long dailyPayment) 
+        : base(accNum, owner, bankName, time, monney, 1f)
     {
         DailyPaymentLimit = dailyPayment;
         Interest = 0;
@@ -276,16 +277,9 @@ class PaymentAccount : BankAccount
             }
             else
             {
-                if (monney > 0 && monney < Monney - 50000)
-                {
-                    Monney -= monney;
-                    orther.Monney += monney;
-                    Console.WriteLine("Chuyen tien thanh cong!");
-                }
-                else
-                {
-                    Console.WriteLine("Chuyen tien that bai !");
-                }
+                Monney -= monney;
+                orther.Monney += monney;
+                Console.WriteLine("Chuyen tien thanh cong!");
                 Monney -= 1100;
                 TotalPayment += monney;
             }
@@ -302,16 +296,9 @@ class PaymentAccount : BankAccount
             }
             else
             {
-                if (monney > 0 && monney < Monney - 50000)
-                {
-                    Monney -= monney;
-                    orther.Monney += monney;
-                    Console.WriteLine("Chuyen tien thanh cong!");
-                }
-                else
-                {
-                    Console.WriteLine("Chuyen tien that bai !");
-                }
+                Monney -= monney;
+                orther.Monney += monney;
+                Console.WriteLine("Chuyen tien thanh cong!");
                 Monney -= 3300;
                 TotalPayment += monney;
             }
@@ -332,22 +319,16 @@ class PaymentAccount : BankAccount
             }
             else
             {
-                if (monney > 0 && monney < Monney - 50000)
-                {
-                    Monney -= monney;
-                    Console.WriteLine("Rut tien thanh cong!");
-                }
-                else
-                {
-                    Console.WriteLine("Rut tien that bai !");
-                }
+
+                Monney -= monney;
+                Console.WriteLine("Rut tien thanh cong!");
                 Monney -= 1100;
                 TotalPayment += monney;
             }
         }
         else
         {
-            if (monney < 0 || monney > Monney - 51000)
+            if (monney < 0 || monney > Monney - 53000)
             {
                 Console.WriteLine("Chuyen tien that bai !");
             }
@@ -357,29 +338,59 @@ class PaymentAccount : BankAccount
             }
             else
             {
-                if (monney > 0 && monney < Monney - 50000)
-                {
-                    Monney -= monney;
-                    Console.WriteLine("Rut tien thanh cong!");
-                }
-                else
-                {
-                    Console.WriteLine("Rut tien that bai !");
-                }
+                Monney -= monney;
+                Console.WriteLine("Rut tien thanh cong!");
                 Monney -= 3300;
                 TotalPayment += monney;
             }
         }
     }
 
-    public override long Pay(BankAccount target, long amount, string bankName)
+    public override long Pay(BankAccount target, long monney, string bankName)
     {
-        throw new NotImplementedException();
+        if (target == null)
+        {
+            Console.WriteLine("==> Tài khoản đích không tồn tại. <==");
+            return -1;
+        }
+        else
+        {
+            if (monney <= Monney - 50000 && TotalPayment + monney < DailyPaymentLimit)
+            {
+                TotalPayment += monney;
+                Monney -= monney;
+                target.Monney += monney;
+                var fee = 0;
+                if (bankName != null)
+                {
+                    // thanh toán trên app
+                    fee = 1100;
+                    if (bankName.CompareTo(bankName) != 0) // thanh toán tại ATM
+                    {
+                        fee = 3300;
+                    }
+                }
+                Monney -= fee;
+                Console.WriteLine($"==> Tài khoản {BankId}: -{monney + fee:n}đ. <==");
+                return monney;
+            }
+            else if (TotalPayment + monney > DailyPaymentLimit)
+            {
+                Console.WriteLine("==> Bạn đã vượt hạn mức thanh toán trong ngày. <==");
+                Console.WriteLine("==> Số tiền có thể chuyển: " + (DailyPaymentLimit - TotalPayment));
+                return -1;
+            }
+            else
+            {
+                Console.WriteLine("==> Số dư không đủ. Thanh toán thất bại. <==");
+                return -1;
+            }
+        }
     }
 
     public override long CalculateInterest()
     {
-        Interest = (long)(Monney * InterestRate);
+        Interest = (long)(InterestRate / 100 * Monney);
         return Interest;
     }
 }
@@ -392,8 +403,8 @@ class SavingAccount : BankAccount
     {
 
     }
-    public SavingAccount(string accNum, string owner, string bankName, DateTime time, long monney, DateTime dispatchDate, DateTime expirationDate, float interestRate , int sendingTerm) 
-        : base(accNum, owner, bankName, time, monney,0)
+    public SavingAccount(string accNum, string owner, string bankName, string time, long monney, DateTime dispatchDate, DateTime expirationDate, int sendingTerm)
+        : base(accNum, owner, bankName, time, monney, 0)
     {
         SendingTerm = sendingTerm;
         DispatchDate = dispatchDate;
@@ -483,18 +494,11 @@ class SavingAccount : BankAccount
             }
             else
             {
-                if (monney > 0 && monney < Monney - 50000)
-                {
-                    Monney -= monney;
-                    orther.Monney += monney;
-                    Console.WriteLine("Chuyen tien thanh cong!");
-                }
-                else
-                {
-                    Console.WriteLine("Chuyen tien that bai !");
-                }
+                Monney -= monney;
+                orther.Monney += monney;
+                Console.WriteLine("Chuyen tien thanh cong!");
                 Monney -= 1100;
-                Monney -= (long) (monney * 0.3);
+                Monney -= (long)(monney * 0.3);
             }
         }
         else
@@ -505,41 +509,26 @@ class SavingAccount : BankAccount
             }
             else
             {
-                if (monney > 0 && monney < Monney - 50000)
-                {
-                    Monney -= monney;
-                    orther.Monney += monney;
-                    Console.WriteLine("Chuyen tien thanh cong!");
-                }
-                else
-                {
-                    Console.WriteLine("Chuyen tien that bai !");
-                }
+                Monney -= monney;
+                orther.Monney += monney;
+                Console.WriteLine("Chuyen tien thanh cong!");
                 Monney -= 3300;
                 Monney -= (long)(monney * 0.3);
             }
         }
     }
 
-    public override void TakeMonney(long monney,string bankName)
+    public override void TakeMonney(long monney, string bankName)
     {
         if (BankName.CompareTo(bankName) == 0)
         {
             if (monney < 0 || monney > Monney - 51000 - monney * 0.3)
             {
-                Console.WriteLine("Chuyen tien that bai !");
+                Console.WriteLine("Rut tien that bai !");
             }
             else
             {
-                if (monney > 0 && monney < Monney - 50000)
-                {
-                    Monney -= monney;
-                    Console.WriteLine("Rut tien thanh cong!");
-                }
-                else
-                {
-                    Console.WriteLine("Rut tien that bai !");
-                }
+                Monney -= monney;
                 Monney -= 1100;
                 Monney -= (long)(monney * 0.3);
             }
@@ -548,33 +537,56 @@ class SavingAccount : BankAccount
         {
             if (monney < 0 || monney > Monney - 51000 - monney * 0.3)
             {
-                Console.WriteLine("Chuyen tien that bai !");
+                Console.WriteLine("Rut tien that bai !");
             }
             else
             {
-                if (monney > 0 && monney < Monney - 50000)
-                {
-                    Monney -= monney;
-                    Console.WriteLine("Rut tien thanh cong!");
-                }
-                else
-                {
-                    Console.WriteLine("Rut tien that bai !");
-                }
+                Monney -= monney;
+                Console.WriteLine("Rut tien thanh cong!");
                 Monney -= 3300;
                 Monney -= (long)(monney * 0.3);
             }
         }
     }
 
-    public override long Pay(BankAccount target, long amount, string bankName)
+    public override long Pay(BankAccount target, long monney, string bankName)
     {
-        throw new NotImplementedException();
+        if (target == null)
+        {
+            Console.WriteLine("==> Tài khoản đích không tồn tại. <==");
+            return -1;
+        }
+        else
+        {
+            if (monney <= Monney - 50000 )
+            {
+                Monney -= monney;
+                target.Monney += monney;
+                var fee = 0;
+                if (bankName != null)
+                {
+                    // thanh toán trên app
+                    fee = 1100;
+                    if (bankName.CompareTo(bankName) != 0) // thanh toán tại ATM
+                    {
+                        fee = 3300;
+                    }
+                }
+                Monney -= fee;
+                Console.WriteLine($"==> Tài khoản {BankId}: -{monney + fee:n}đ. <==");
+                return monney;
+            }
+            else
+            {
+                Console.WriteLine("==> Số dư không đủ. Thanh toán thất bại. <==");
+                return -1;
+            }
+        }
     }
 
     public override long CalculateInterest()
     {
-        Interest = (long)(Monney * InterestRate);
+        Interest = (long)(InterestRate / 100 * Monney);
         return Interest;
     }
 }
