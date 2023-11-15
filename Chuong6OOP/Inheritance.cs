@@ -1,6 +1,9 @@
-﻿using System.Runtime.ConstrainedExecution;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.WebSockets;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Chuong6;
 #region Bai 1
@@ -464,7 +467,7 @@ class Run
 }*/
 #endregion
 #region Bai 2
-/*
+
 class BankAccount
 {
     static BankAccount()
@@ -517,7 +520,7 @@ class BankAccount
         Pin = pin;
     }
 
-    public void CheckMonney()
+    public virtual void CheckMonney()
     {
         Console.WriteLine("============ THÔNG TIN TÀI KHOẢN ============");
         Console.WriteLine($"Số tài khoản: {BankId}");
@@ -528,7 +531,7 @@ class BankAccount
         Console.WriteLine("=============================================");
     }
 
-    public void AddMonney(long monney)
+    public virtual void AddMonney(long monney)
     {
         if (monney > 0)
         {
@@ -644,7 +647,17 @@ class PayMentAccount : BankAccount
         BankPaymentFees = bankPaymentFees;
         InterbankPaymentFees = interbankPaymentFees;
     }
-
+    public override void CheckMonney()
+    {
+        Console.WriteLine("============ THÔNG TIN TÀI KHOẢN ============");
+        Console.WriteLine($"Số tài khoản: {BankId}");
+        Console.WriteLine($"Chủ tài khoản: {Owner}");
+        Console.WriteLine($"Tai khoan thanh toan");
+        Console.WriteLine($"Số dư: {Monney}đ");
+        var formatter = "HH:mm:ss dd/MM/yyyy";
+        Console.WriteLine($"Thời gian: {DateTime.Now.ToString(formatter)}");
+        Console.WriteLine("=============================================");
+    }
     public override void TakeMonney(string bankName, long monney)
     {
         var fee = (long)(1.0 / 100 * monney); // phí 1%
@@ -1068,7 +1081,7 @@ class Run
         } while (x != 9);
     }
 }
-*/
+
 #endregion
 #region Bai 3
 /*
