@@ -1,0 +1,15 @@
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.exe
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.deps.json
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.runtimeconfig.json
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.dll
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.pdb
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.AssemblyInfo.cs
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.sourcelink.json
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.dll
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\refint\DesignClass.dll
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.pdb
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.genruntimeconfig.cache
+C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\ref\DesignClass.dll

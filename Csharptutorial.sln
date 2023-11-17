@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6.7BTRecord", "BTRecord\6.7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chuong6OOP", "Chuong6OOP\Chuong6OOP.csproj", "{F16B8771-04CF-4575-A36F-F85E59FB0CF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignClass", "DesignClass\DesignClass.csproj", "{857070A5-EEDB-4B77-B683-882BF4012D72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{F16B8771-04CF-4575-A36F-F85E59FB0CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F16B8771-04CF-4575-A36F-F85E59FB0CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F16B8771-04CF-4575-A36F-F85E59FB0CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{857070A5-EEDB-4B77-B683-882BF4012D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{857070A5-EEDB-4B77-B683-882BF4012D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{857070A5-EEDB-4B77-B683-882BF4012D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{857070A5-EEDB-4B77-B683-882BF4012D72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
