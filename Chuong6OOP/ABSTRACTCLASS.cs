@@ -394,7 +394,7 @@ class Run
     }
 }
 */
-#endregion Bai 1
+#endregion
 #region Bai 2
 /*
 class BankUitl

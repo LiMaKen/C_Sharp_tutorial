@@ -222,7 +222,7 @@ class Uilt : IUiltBase
 }
 class Run
 {
-    static void Main()
+   /* static void Main()
     {
         string input = "He xin chao cac ban ! minh ten la Tuuu";
         Uilt stringUilt = new Uilt();
@@ -234,6 +234,6 @@ class Run
         Console.WriteLine($"Tim tu dai nhat: {stringUilt.SeachMaxLength(input)}");
         Console.WriteLine($"Tim tu ngan nhat: {stringUilt.SeachMinLength(input)}");
         Console.WriteLine($"Dao nguoc: {stringUilt.Revers(input)}");
-    }
+    }*/
 }
 #endregion
