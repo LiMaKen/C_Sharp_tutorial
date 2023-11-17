@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\BTRecord\\6.7BTRecord.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\DiscordBot\\DiscordBot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\BTRecord\\6.7BTRecord.csproj": {
+    "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\DiscordBot\\DiscordBot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\BTRecord\\6.7BTRecord.csproj",
-        "projectName": "6.7BTRecord",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\BTRecord\\6.7BTRecord.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\DiscordBot\\DiscordBot.csproj",
+        "projectName": "DiscordBot",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\DiscordBot\\DiscordBot.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\BTRecord\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\DiscordBot\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,28 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Discord.Net": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "Discord.Net.WebSocket": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Newtonsoft.Json.Bson": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
