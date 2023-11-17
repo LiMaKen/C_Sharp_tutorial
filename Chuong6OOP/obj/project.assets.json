@@ -8,24 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Pro\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj",
+      "projectUniqueName": "E:\\save\\hoc tap\\C#\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj",
       "projectName": "Chuong6OOP",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Chuong6OOP\\obj\\",
+      "projectPath": "E:\\save\\hoc tap\\C#\\Csharp\\Chuong6OOP\\Chuong6OOP.csproj",
+      "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
+      "outputPath": "E:\\save\\hoc tap\\C#\\Csharp\\Chuong6OOP\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -66,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

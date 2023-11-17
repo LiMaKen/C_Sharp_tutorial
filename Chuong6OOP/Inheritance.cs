@@ -968,7 +968,7 @@ class BankUtil
 
 class Run
 {
-    static void Main()
+  /*  static void Main()
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         BankAccount[] bankAccounts = new BankAccount[100];
@@ -1079,7 +1079,7 @@ class Run
                     break;
             }
         } while (x != 9);
-    }
+    }*/
 }
 
 #endregion
