@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\save\\hoc tap\\C#\\Csharp\\DesignClass\\DesignClass.csproj",
-      "projectName": "DesignClass",
-      "projectPath": "E:\\save\\hoc tap\\C#\\Csharp\\DesignClass\\DesignClass.csproj",
+      "projectUniqueName": "E:\\save\\hoc tap\\C#\\Csharp\\ConsoleLog\\ConsoleLog.csproj",
+      "projectName": "ConsoleLog",
+      "projectPath": "E:\\save\\hoc tap\\C#\\Csharp\\ConsoleLog\\ConsoleLog.csproj",
       "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
-      "outputPath": "E:\\save\\hoc tap\\C#\\Csharp\\DesignClass\\obj\\",
+      "outputPath": "E:\\save\\hoc tap\\C#\\Csharp\\ConsoleLog\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Pro\\AppData\\Roaming\\NuGet\\NuGet.Config",

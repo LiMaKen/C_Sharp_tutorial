@@ -1,10 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="DesignClass.Staff">
-    <Position X="2" Y="0.5" Width="1.5" />
+  <Class Name="DesignClass.Uitl">
+    <Position X="0.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Staff.cs</FileName>
+      <HashCode>AQAABAEABAAAAAAQAFCAAgAgAAADQABAGQBAAAgAgIA=</HashCode>
+      <FileName>Uitl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignClass.Run">
+    <Position X="3.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Run.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignClass.Base.Person">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAEAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Base\Person.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FullName" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DesignClass.Base.Student">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAgAAAAAAAAAAAgIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Base\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignClass.Base.TranScript">
+    <Position X="11" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAiAAQAAAAABAAAAAAAoAAQAAAAgAAAAAA=</HashCode>
+      <FileName>Base\TranScript.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Student" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DesignClass.Base.Course">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEEAEAAAAAAIAAAAIAAgAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Base\Course.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Subject" />
+      <Property Name="TranScript" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DesignClass.Base.Subject">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAEAAAAAAAAAAAAAAAAAAAgAAAAAAAACAAAAA=</HashCode>
+      <FileName>Base\Subject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignClass.Base.FullName">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAEAAAAAAAAAAAAAAAAEAAAAAACAAg=</HashCode>
+      <FileName>Base\FullName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignClass.Information">
+    <Position X="7" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAACAAAAAAAAAAAABABAAAAA=</HashCode>
+      <FileName>Information.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

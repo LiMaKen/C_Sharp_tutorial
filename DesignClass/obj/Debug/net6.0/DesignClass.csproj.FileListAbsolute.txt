@@ -13,3 +13,17 @@ C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\refint\De
 C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.pdb
 C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.genruntimeconfig.cache
 C:\Users\Admin\Desktop\học tập\Csharp\DesignClass\obj\Debug\net6.0\ref\DesignClass.dll
+E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.GeneratedMSBuildEditorConfig.editorconfig
+E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.AssemblyInfoInputs.cache
+E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.AssemblyInfo.cs
+E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.csproj.CoreCompileInputs.cache
+E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.dll
+E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\refint\DesignClass.dll
+E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.pdb
+E:\save\hoc tap\C#\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.exe
+E:\save\hoc tap\C#\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.deps.json
+E:\save\hoc tap\C#\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.runtimeconfig.json
+E:\save\hoc tap\C#\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.dll
+E:\save\hoc tap\C#\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.pdb
+E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.genruntimeconfig.cache
+E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\ref\DesignClass.dll
