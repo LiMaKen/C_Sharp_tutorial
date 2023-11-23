@@ -15,9 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6.7BTRecord", "BTRecord\6.7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chuong6OOP", "Chuong6OOP\Chuong6OOP.csproj", "{F16B8771-04CF-4575-A36F-F85E59FB0CF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignClass", "DesignClass\DesignClass.csproj", "{857070A5-EEDB-4B77-B683-882BF4012D72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignClass", "DesignClass\DesignClass.csproj", "{857070A5-EEDB-4B77-B683-882BF4012D72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLog", "ConsoleLog\ConsoleLog.csproj", "{F18D5AFC-6C50-48E1-A610-89281ECD72DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleLog", "ConsoleLog\ConsoleLog.csproj", "{F18D5AFC-6C50-48E1-A610-89281ECD72DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regular", "Regular\Regular.csproj", "{86CBFF40-DED5-4445-AA6C-3B48AFF66BCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{F18D5AFC-6C50-48E1-A610-89281ECD72DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F18D5AFC-6C50-48E1-A610-89281ECD72DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F18D5AFC-6C50-48E1-A610-89281ECD72DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86CBFF40-DED5-4445-AA6C-3B48AFF66BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86CBFF40-DED5-4445-AA6C-3B48AFF66BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86CBFF40-DED5-4445-AA6C-3B48AFF66BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86CBFF40-DED5-4445-AA6C-3B48AFF66BCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,15 @@
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\bin\Debug\net6.0\Regular.exe
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\bin\Debug\net6.0\Regular.deps.json
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\bin\Debug\net6.0\Regular.runtimeconfig.json
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\bin\Debug\net6.0\Regular.dll
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\bin\Debug\net6.0\Regular.pdb
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\Regular.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\Regular.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\Regular.AssemblyInfo.cs
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\Regular.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\Regular.sourcelink.json
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\Regular.dll
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\refint\Regular.dll
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\Regular.pdb
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\Regular.genruntimeconfig.cache
+C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\ref\Regular.dll
