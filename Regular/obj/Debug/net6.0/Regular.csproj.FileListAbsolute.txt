@@ -13,3 +13,11 @@ C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\refint\Regula
 C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\Regular.pdb
 C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\Regular.genruntimeconfig.cache
 C:\Users\Admin\Desktop\học tập\Csharp\Regular\obj\Debug\net6.0\ref\Regular.dll
+E:\save\hoc tap\C#\Csharp\Regular\obj\Debug\net6.0\Regular.GeneratedMSBuildEditorConfig.editorconfig
+E:\save\hoc tap\C#\Csharp\Regular\obj\Debug\net6.0\Regular.AssemblyInfoInputs.cache
+E:\save\hoc tap\C#\Csharp\Regular\obj\Debug\net6.0\Regular.AssemblyInfo.cs
+E:\save\hoc tap\C#\Csharp\Regular\obj\Debug\net6.0\Regular.csproj.CoreCompileInputs.cache
+E:\save\hoc tap\C#\Csharp\Regular\obj\Debug\net6.0\Regular.sourcelink.json
+E:\save\hoc tap\C#\Csharp\Regular\obj\Debug\net6.0\Regular.dll
+E:\save\hoc tap\C#\Csharp\Regular\obj\Debug\net6.0\refint\Regular.dll
+E:\save\hoc tap\C#\Csharp\Regular\obj\Debug\net6.0\Regular.pdb

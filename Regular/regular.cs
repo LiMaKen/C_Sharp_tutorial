@@ -127,6 +127,17 @@ class Staff : BaseStaff
         RealSalary = (long)(Salary * WorkingDay / 22 + bonus);
         return RealSalary;
     }
+    public override bool Equals(object obj)
+    {
+        if (obj == null) return false;
+        if (obj.GetType() != this.GetType()) return false;
+        var newObj = obj as Staff;
+        return newObj.Id.Equals(this.Id);
+    }
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
 }
 class Manager : Staff
 {
@@ -196,20 +207,165 @@ class FullName
     public override string ToString() => $"{FirstName} {MidName} {Lastname}";
 }
 #endregion
+class StaffUitl
+{
+    public static Staff Create() 
+    {
+        Console.WriteLine("Nhap vao lua chon: ");
+        int x = int.Parse(Console.ReadLine());
+        if (x == 1)
+        {
+            return CreateStaff();
+        }
+        else if (x ==2)
+        {
+            return CreateManager();
+        }
+        else if(x ==3)
+        {
+            return CreateDirector();
+        }
+        return null;
+    }
+
+    private static Director CreateDirector()
+    {
+        var staff = CreateStaff();
+        Console.WriteLine("Nhap vao chuc vu: ");
+        string role = Console.ReadLine();
+        Console.WriteLine("Nhap vao thoi gian nhan viec: ");
+        string time = Console.ReadLine();
+        Console.WriteLine("Nhap vao he so tien thuong: ");
+        float bonus = float.Parse(Console.ReadLine());
+        return new Director(staff.Id, staff.FullName.ToString(), staff.Email, staff.Phone, staff.Salary, staff.WorkingDay, role, time, bonus);
+    }
+
+    private static Manager CreateManager()
+    {
+        var staff = CreateStaff();
+        Console.WriteLine("Nhap vao chuc vu: ");
+        string role = Console.ReadLine();
+        Console.WriteLine("Nhap vao he so tien thuong: ");
+        float bonus = float.Parse(Console.ReadLine());
+        return new Manager(staff.Id, staff.FullName.ToString(), staff.Email, staff.Phone, staff.Salary, staff.WorkingDay, role, bonus);
+    }
+
+    private static Staff CreateStaff()
+    {
+        Controler controler = new Controler();
+        while (true)
+        {
+            Console.WriteLine("Nhap vao ho ten: ");
+            string name = Console.ReadLine();
+            if (!controler.IsName(name)) continue;
+            Console.WriteLine("Nhap vao email: ");
+            string email = Console.ReadLine();
+            if (!controler.IsEmail(email)) continue;
+            Console.WriteLine("Nhap vao so dien thoai: ");
+            string phone = Console.ReadLine();
+            if (!controler.IsPhone(phone)) continue;
+            Console.WriteLine("Nhap vao muc luong: ");
+            long salary = long.Parse(Console.ReadLine());
+            Console.WriteLine("Nhap vao so ngay lam viec: ");
+            int wokingDay = int.Parse(Console.ReadLine());
+            return new Staff(null, name, email, phone, salary, wokingDay);
+        }
+    }
+    static void RealSalary(Staff[] staff)
+    {
+        foreach (var item in staff)
+        {
+            item.SumSalary(100000);
+        }
+    }
+    static void SortStaffBySalary(Staff[] staff)
+    {
+        int comparer(BaseStaff a, BaseStaff b)
+        {
+            if (a == null && b == null)
+            {
+                return 0;
+            }
+            else if (a == null && b != null)
+            {
+                return -1;
+            }
+            else if (a != null && b == null)
+            {
+                return 1;
+            }
+            return (int)(b.Salary - a.Salary);
+        };
+        Array.Sort(staff, comparer);
+    }
+    static void SortStaffByDay(Staff[] staff)
+    {
+        int comparer(BaseStaff a, BaseStaff b)
+        {
+            if (a == null && b == null)
+            {
+                return 0;
+            }
+            else if (a == null && b != null)
+            {
+                return -1;
+            }
+            else if (a != null && b == null)
+            {
+                return 1;
+            }
+            return (b.WorkingDay > a.WorkingDay) ? 1 : (b.WorkingDay == a.WorkingDay) ? 0 : -1;
+        };
+        Array.Sort(staff, comparer);
+    }
+    static void SeachStaff(Staff[] staffs)
+    {
+        Console.WriteLine("Nhap vao ma nhan vien: ");
+        string id = Console.ReadLine();
+        var staff = GetStaff(staffs , id);
+        if (staff == null) return;
+    }
+
+    private static Staff GetStaff(Staff[] staffs, string id)
+    {
+        foreach (var item in staffs)
+        {
+            if (item != null && item.Id.CompareTo(id) == 0)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+    public static void EditSalary(Staff[] staffs)
+    {
+        Console.WriteLine("Nhap vao ma nhan vien: ");
+        string id = Console.ReadLine();
+        var staff = GetStaff(staffs, id);
+        if (staff == null) return;
+        Console.WriteLine("Nhap vao muc luong can sua: ");
+        long newSalary = long.Parse(Console.ReadLine());
+        staff.Salary = newSalary;
+    }
+    public static void DeleteStaff(Staff[] staffs)
+    {
+        Console.WriteLine("Nhap vao ma nhan vien: ");
+        string id = Console.ReadLine();
+        var staff = GetStaff(staffs, id);
+        if (staff == null) return;
+        for (int i = 0; i < staffs.Length; i++)
+        {
+            if (staff.Equals(staffs[i]))
+            {
+                staffs[i] = null;
+            }
+        }
+    }
+}
 class Run
 {
     static void Main()
     {
-        int[] invalidMenTop = { 4, 16, 24, 25, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 63, 74, 75, 76, 77, 78, 79, 80, 95, 96, 97, 98, 102, 115, 116, 117, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135 };
-
-        int[] fullRange = Enumerable.Range(0, 164).ToArray();
-
-        int[] newArray = fullRange.Except(invalidMenTop).ToArray();
-        var data = "";
-        foreach (int num in newArray)
-        {
-           data += num + ", ";
-        }
-        Console.WriteLine(data);
+       
     }
 }
