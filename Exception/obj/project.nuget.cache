@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "dDsxd08QL9kroriGqLL+ch+0juIc1fO6IhGomo1128Ewq05L9O8abIddwOcQSVsE5TBb2Q0LKrGD8MG9Xk4HJg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Exception\\Exception.csproj",
+=======
+  "dgSpecHash": "VA3mGbGaBIHltWdWRg/Jbu71to7UDDoVsm2OMn1NKGrT9x76TFayaNOnsjVbyqwjGUdDgN0VTTlqbRnDX9i+0g==",
+  "success": true,
+  "projectFilePath": "E:\\save\\hoc tap\\C#\\Csharp\\Exception\\Exception.csproj",
+>>>>>>> ac11a793c5553a033e520dc682811999de6ac7da
   "expectedPackageFiles": [],
   "logs": []
 }

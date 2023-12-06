@@ -8,12 +8,17 @@
     "net8.0": []
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "C:\\Users\\Pro\\.nuget\\packages\\": {}
+>>>>>>> ac11a793c5553a033e520dc682811999de6ac7da
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Exception\\Exception.csproj",
       "projectName": "Exception",
       "projectPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Exception\\Exception.csproj",
@@ -26,6 +31,16 @@
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+      "projectUniqueName": "E:\\save\\hoc tap\\C#\\Csharp\\Exception\\Exception.csproj",
+      "projectName": "Exception",
+      "projectPath": "E:\\save\\hoc tap\\C#\\Csharp\\Exception\\Exception.csproj",
+      "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
+      "outputPath": "E:\\save\\hoc tap\\C#\\Csharp\\Exception\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> ac11a793c5553a033e520dc682811999de6ac7da
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
