@@ -18,7 +18,6 @@ E:\save\hoc tap\C#\Csharp\Chuong6\bin\Debug\Chuong6.exe.config
 E:\save\hoc tap\C#\Csharp\Chuong6\bin\Debug\Chuong6.exe
 E:\save\hoc tap\C#\Csharp\Chuong6\bin\Debug\Chuong6.pdb
 E:\save\hoc tap\C#\Csharp\Chuong6\obj\Debug\Chuong6.csproj.AssemblyReference.cache
-E:\save\hoc tap\C#\Csharp\Chuong6\obj\Debug\Chuong6.csproj.SuggestedBindingRedirects.cache
 E:\save\hoc tap\C#\Csharp\Chuong6\obj\Debug\Chuong6.csproj.CoreCompileInputs.cache
 E:\save\hoc tap\C#\Csharp\Chuong6\obj\Debug\Chuong6.exe
 E:\save\hoc tap\C#\Csharp\Chuong6\obj\Debug\Chuong6.pdb

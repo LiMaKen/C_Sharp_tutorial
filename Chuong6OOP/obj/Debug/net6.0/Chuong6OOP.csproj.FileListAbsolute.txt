@@ -27,3 +27,4 @@ E:\save\hoc tap\C#\Csharp\Chuong6OOP\obj\Debug\net6.0\refint\Chuong6OOP.dll
 E:\save\hoc tap\C#\Csharp\Chuong6OOP\obj\Debug\net6.0\Chuong6OOP.pdb
 E:\save\hoc tap\C#\Csharp\Chuong6OOP\obj\Debug\net6.0\Chuong6OOP.genruntimeconfig.cache
 E:\save\hoc tap\C#\Csharp\Chuong6OOP\obj\Debug\net6.0\ref\Chuong6OOP.dll
+E:\save\hoc tap\C#\Csharp\Chuong6OOP\obj\Debug\net6.0\Chuong6OOP.sourcelink.json

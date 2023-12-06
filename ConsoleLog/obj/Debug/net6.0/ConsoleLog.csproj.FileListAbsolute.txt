@@ -1,0 +1,5 @@
+E:\save\hoc tap\C#\Csharp\ConsoleLog\obj\Debug\net6.0\ConsoleLog.GeneratedMSBuildEditorConfig.editorconfig
+E:\save\hoc tap\C#\Csharp\ConsoleLog\obj\Debug\net6.0\ConsoleLog.AssemblyInfoInputs.cache
+E:\save\hoc tap\C#\Csharp\ConsoleLog\obj\Debug\net6.0\ConsoleLog.AssemblyInfo.cs
+E:\save\hoc tap\C#\Csharp\ConsoleLog\obj\Debug\net6.0\ConsoleLog.csproj.CoreCompileInputs.cache
+E:\save\hoc tap\C#\Csharp\ConsoleLog\obj\Debug\net6.0\ConsoleLog.sourcelink.json

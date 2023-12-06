@@ -27,3 +27,4 @@ E:\save\hoc tap\C#\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.dll
 E:\save\hoc tap\C#\Csharp\DesignClass\bin\Debug\net6.0\DesignClass.pdb
 E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.genruntimeconfig.cache
 E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\ref\DesignClass.dll
+E:\save\hoc tap\C#\Csharp\DesignClass\obj\Debug\net6.0\DesignClass.sourcelink.json

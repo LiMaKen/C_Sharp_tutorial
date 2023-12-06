@@ -1836,24 +1836,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Pro\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Database\\Database.csproj",
+      "projectUniqueName": "E:\\save\\hoc tap\\C#\\Csharp\\Database\\Database.csproj",
       "projectName": "Database",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Database\\Database.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Database\\obj\\",
+      "projectPath": "E:\\save\\hoc tap\\C#\\Csharp\\Database\\Database.csproj",
+      "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
+      "outputPath": "E:\\save\\hoc tap\\C#\\Csharp\\Database\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

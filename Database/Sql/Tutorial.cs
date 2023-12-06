@@ -10,6 +10,7 @@ namespace Database.Sql
 {
     // cú pháp insert : "INSERT INTO [TÊN DATABASE](TÊN KHÓA,...) VALUES (@[TÊN VALUE],....)"
     // cú pháp select : "SELECT [*/Tên khóa] FROM [TEN DATABSE] "
+    // cú pháp select SẮP XẾP: "SELECT [*/Tên khóa] FROM [TEN DATABSE] ORDER BY [] ASC/DESC "
     // cú pháp update : "UPDATE [TÊN DATABSE] SET [KHÓA]=@[VALUES],...."
     // cú pháp delete : "DELETE FROM [TÊN DATABASE] WHERE [TÊN KHÓA(Chính)]"
 

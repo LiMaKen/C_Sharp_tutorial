@@ -10,9 +10,10 @@ namespace Database.BTStaff
 {
     internal class Run
     {
+        public static List<Staff> staffs = new List<Staff>();
         static void Main()
         {
-            List<Staff> staffs = new List<Staff>();   
+            
             Console.OutputEncoding = Encoding.UTF8;
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("=====Chương trình đang được khởi động=====");
@@ -22,7 +23,7 @@ namespace Database.BTStaff
             int x;
             do
             {
-
+                staffs = StaffData.SelectAllData();
                 Console.WriteLine("1) Thêm mới một nhân viên vào danh sách nhân viên. Mã nhân viên là duy nhất, không được\r\nphép lặp lại.\r\n" +
                "2) Hiển thị danh sách nhân viên ra màn hình.\r\n" +
                "3) Tính lương của các nhân viên trong danh sách.\r\n" +
@@ -46,7 +47,6 @@ namespace Database.BTStaff
                         }
                         break;
                     case 2:
-                        staffs = StaffData.SelectAllData();
                         if (staffs.Count == 0)
                         {
                             Console.WriteLine("Trong");
@@ -57,18 +57,25 @@ namespace Database.BTStaff
                         }
                         break;
                     case 3:
+                        UiltStaff.SumSalaryAll();
                         break;
                     case 4:
+                        UiltStaff.SortStaffBySalary();
                         break;
                     case 5:
+                        UiltStaff.SortStaffByWrokingDay();
                         break;
                     case 6:
+                        UiltStaff.SeachStaffByStaffId();
                         break;
                     case 7:
+                        UiltStaff.SeachStaffBySalary();
                         break;
                     case 8:
+                        UiltStaff.UpdateSalary();
                         break;
                     case 9:
+                        UiltStaff.DeleteStaffByStaffId();
                         break;
                     case 10:
                         break;

@@ -42,9 +42,42 @@ namespace Database.BTStaff
 
         internal static void ShowStaff(List<Staff> staffs)
         {
-            throw new NotImplementedException();
+            var titleStaffId = "StaffId";
+            var titleFullName = "FullName";
+            var titleEmail = "Email";
+            var titlePhone = "Phone";
+            var titleRole = "Role";
+            var titleSalary = "Salary";
+            var titleWorkingDay = "WorkingDay";
+            var titleRealSalary = "RealSalary";
+            var titleBonus = "Bonus";
+            var titleTime = "Time";
+            var TitleNo = "-";
+            Console.WriteLine($"{titleStaffId,15}{titleFullName,20}{titleEmail,20}{titlePhone,15}{titleRole,15}{titleSalary,15}{titleWorkingDay,15}{titleRealSalary,15}{titleBonus,15}{titleTime,15}");
+            foreach (var item in staffs)
+            {
+                if (item is Manager)
+                {
+                    var manager = (Manager)item;
+                    Console.WriteLine($"{manager.StaffId,15}{manager.FullName,20}{manager.Email,20} {manager.Phone,15} {manager.Role,15} {manager.Salary,15} {manager.WorkingDay,15} {manager.RealSalary,15} {manager.Bonus,15} {TitleNo,15}");
+                }
+                else if (item is Director)
+                {
+                    var director = (Director)item;
+                    Console.WriteLine($"{director.StaffId,15} {director.FullName,20} {director.Email,20} {director.Phone,15} {director.Role,15} {director.Salary,15} {director.WorkingDay,15} {director.RealSalary,15} {director.Bonus,15} {director.Time,15}");
+                }
+                else
+                {
+                    Console.WriteLine($"{item.StaffId,15}{item.FullName,20}{item.Email,20}{item.Phone,15}{item.Role,15}{item.Salary,15}{item.WorkingDay,15}{item.RealSalary,15}{TitleNo,15}{TitleNo,15}");
+                }
+            }
         }
-
+        public static void SortStaffBySalary()
+        {
+            var staffs = new List<Staff>();
+            staffs = StaffData.SelectAllDataBySalary();
+            ShowStaff(staffs);
+        }
         private static Director CreateDirector()
         {
             Controler controler = new Controler();
@@ -108,6 +141,116 @@ namespace Database.BTStaff
                 return null;
             }
             return new Staff(null, name, email, phone, "Nhan vien", salary, workingDay); ;
+        }
+
+        internal static void SumSalaryAll()
+        {
+            var staffs = StaffData.SelectAllData();
+            try
+            {
+                MySqlCommand command = DatabaseConnect.Connection.CreateCommand();
+
+                foreach (var staff in staffs)
+                {
+                    command.CommandText = "UPDATE staff SET realsalary=@realsalary WHERE staffid=@staffid";
+                    command.Parameters.AddWithValue("staffid", staff.StaffId);
+                    command.Parameters.AddWithValue("realsalary", staff.SumSalary());
+                    command.ExecuteNonQuery();
+                    command.Parameters.Clear();
+                }
+                Console.WriteLine("UPDATE THANH CONG!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+        internal static void SortStaffByWrokingDay()
+        {
+           
+            try
+            {
+                var staffs = StaffData.SelectByWorkingDay();
+                ShowStaff(staffs);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        internal static void SeachStaffByStaffId()
+        {
+            Console.WriteLine("Nhap vao ma nhan vien can tim:");
+            string staffid = Console.ReadLine();
+            List<Staff> staffs = StaffData.SeachStaffId(staffid);
+            if (staffs.Count == 0)
+            {
+                Console.WriteLine("Khong tim thay!");
+            }
+            else
+            {
+                ShowStaff(staffs);
+            }
+        }
+
+        internal static void SeachStaffBySalary()
+        {
+            Console.WriteLine("Nhap vao muc luong can tim:");
+            string salary = Console.ReadLine();
+            List<Staff> staffs = StaffData.SeachStaffBySalary(salary);
+            if (staffs.Count == 0)
+            {
+                Console.WriteLine("Khong tim thay!");
+            }
+            else
+            {
+                ShowStaff(staffs);
+            }
+        }
+
+        internal static void UpdateSalary()
+        {
+            Console.WriteLine("Nhap vao ma nhan vien: ");
+            string staffid = Console.ReadLine();
+            var staff = GetStaff(Run.staffs, staffid);
+            if (staff != null)
+            {
+                Console.WriteLine("Nhap vao muc luong tang: ");
+                string salary = Console.ReadLine();
+                StaffData.UpdateStaffSalary(staff,salary);
+            }
+            else
+            {
+                Console.WriteLine("khong tim thay nhan vien");
+            }
+        }
+
+        private static Staff GetStaff(List<Staff> staffs, string staffid)
+        {
+            foreach (var item in staffs)
+            {
+                if (item != null && item.StaffId == staffid)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        internal static void DeleteStaffByStaffId()
+        {
+            Console.WriteLine("Nhap vao ma nhan vien: ");
+            string staffid = Console.ReadLine();
+            var staff = GetStaff(Run.staffs, staffid);
+            if (staff != null)
+            {
+                StaffData.DeleteStaff(staff);
+            }
+            else
+            {
+                Console.WriteLine("khong tim thay nhan vien");
+            }
         }
     }
 }
