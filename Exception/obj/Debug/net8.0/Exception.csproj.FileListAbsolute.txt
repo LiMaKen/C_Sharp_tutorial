@@ -1,0 +1,15 @@
+E:\save\hoc tap\C#\Csharp\Exception\bin\Debug\net8.0\Exception.exe
+E:\save\hoc tap\C#\Csharp\Exception\bin\Debug\net8.0\Exception.deps.json
+E:\save\hoc tap\C#\Csharp\Exception\bin\Debug\net8.0\Exception.runtimeconfig.json
+E:\save\hoc tap\C#\Csharp\Exception\bin\Debug\net8.0\Exception.dll
+E:\save\hoc tap\C#\Csharp\Exception\bin\Debug\net8.0\Exception.pdb
+E:\save\hoc tap\C#\Csharp\Exception\obj\Debug\net8.0\Exception.GeneratedMSBuildEditorConfig.editorconfig
+E:\save\hoc tap\C#\Csharp\Exception\obj\Debug\net8.0\Exception.AssemblyInfoInputs.cache
+E:\save\hoc tap\C#\Csharp\Exception\obj\Debug\net8.0\Exception.AssemblyInfo.cs
+E:\save\hoc tap\C#\Csharp\Exception\obj\Debug\net8.0\Exception.csproj.CoreCompileInputs.cache
+E:\save\hoc tap\C#\Csharp\Exception\obj\Debug\net8.0\Exception.sourcelink.json
+E:\save\hoc tap\C#\Csharp\Exception\obj\Debug\net8.0\Exception.dll
+E:\save\hoc tap\C#\Csharp\Exception\obj\Debug\net8.0\refint\Exception.dll
+E:\save\hoc tap\C#\Csharp\Exception\obj\Debug\net8.0\Exception.pdb
+E:\save\hoc tap\C#\Csharp\Exception\obj\Debug\net8.0\Exception.genruntimeconfig.cache
+E:\save\hoc tap\C#\Csharp\Exception\obj\Debug\net8.0\ref\Exception.dll
