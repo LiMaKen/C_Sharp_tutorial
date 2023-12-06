@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\save\\hoc tap\\C#\\Csharp\\Regular\\Regular.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Regular\\Regular.csproj": {}
   },
   "projects": {
-    "E:\\save\\hoc tap\\C#\\Csharp\\Regular\\Regular.csproj": {
+    "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Regular\\Regular.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\save\\hoc tap\\C#\\Csharp\\Regular\\Regular.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Regular\\Regular.csproj",
         "projectName": "Regular",
-        "projectPath": "E:\\save\\hoc tap\\C#\\Csharp\\Regular\\Regular.csproj",
-        "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
-        "outputPath": "E:\\save\\hoc tap\\C#\\Csharp\\Regular\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Regular\\Regular.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\học tập\\Csharp\\Regular\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
