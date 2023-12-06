@@ -29,7 +29,7 @@ namespace Database.BTStaff
                "4) Sắp xếp danh sách nhân viên theo mức lương thực lĩnh giảm dần.\r\n" +
                "5) Sắp xếp danh sách nhân viên theo số ngày đi làm trong tháng giảm dần.\r\n" +
                "6) Tìm và hiển thị thông tin nhân viên theo mã nhân viên.\r\n" +
-               "7) Tìm và hiển thị thông tin nhân viên theo mức lương.\r\n" +
+               "7) Tìm  và hiển thị thông tin nhân viên theo mức lương.\r\n" +
                "8) Cập nhật mức lương cho nhân viên mã x vừa được tăng lương.\r\n" +
                "9) Xóa bỏ nhân viên có mã cho trước.\r\n" +
                "10) Tính tổng lương các nhân viên có trong danh sách.\r\n" +
